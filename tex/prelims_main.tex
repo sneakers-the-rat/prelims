@@ -1,0 +1,47 @@
+\documentclass{article}
+
+% --------------------------------------------------------\
+% imports
+
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[
+	backend=biber,
+	style=numeric,
+	citestyle=numeric
+]{biblatex}
+
+\usepackage{subfiles}
+
+% --------------------------------------------------------
+% Bibliography
+\addbibresource{../prelims_lit.bib}
+
+% Print bibliography at end of each subfile when compiling separately,
+% but also in main document when compiling together
+\AtEndDocument{%
+    \printbibliography
+}
+
+% --------------------------------------------------------
+% titling
+
+\title{Prelims}
+\author{Jonny Saunders}
+\date{\today}
+
+\begin{document}
+
+
+\maketitle
+
+% include sections
+\include{sections/0_abstract}
+\include{sections/1_introduction}
+\include{sections/2_methods}
+\include{sections/3_aims}
+\include{sections/4_impacts}
+\include{sections/99_meta}
+
+
+\end{document}
