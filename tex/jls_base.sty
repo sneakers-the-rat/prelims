@@ -11,6 +11,7 @@
 \usepackage{titling}
 \usepackage[usenames, svgnames]{xcolor}
 \usepackage{geometry}
+\usepackage{framed}
 \usepackage[colorlinks = true,
             urlcolor = Red,
             citecolor = Red]{hyperref}
@@ -54,28 +55,17 @@
 \setlength{\columnsep}{12pt}
 % \setlength{\columnseprule}{0.1pt}
 
-
-%
-% Hanging paragraphs
-% \newenvironment{hangingpar}[1]
-%   {\begin{list}
-%           {}
-%           {\setlength{\itemindent}{-#1}%%'
-%            \setlength{\leftmargin}{#1}%%'
-%            \setlength{\itemsep}{0pt}%%'
-%            \setlength{\parsep}{\parskip}%%'
-%            \setlength{\topsep}{\parskip}%%'
-%            }
-%     \setlength{\parindent}{-#1}%%
-%     \item[]
-%   }
-%   {\end{list}}
-
 % right aligned tabularx
 \newcolumntype{R}{>{\raggedleft\arraybackslash}X}
 
 % remove "contents" from toc
 \renewcommand{\contentsname}{}
+
+% leftbar for blockquotes
+\renewenvironment{leftbar}
+{\def\FrameCommand{\hspace{0em}\vrule width 0.5pt \hspace{1em}}\MakeFramed {\advance\hsize-\width \FrameRestore}}
+{\endMakeFramed}
+
 
 % --------------------------------------------------------
 % Typography
