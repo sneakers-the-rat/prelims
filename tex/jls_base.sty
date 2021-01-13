@@ -39,7 +39,7 @@
 
 %% title spacing
 \titlespacing*{\chapter}{0pt}{-10pt}{0pt}
-\titlespacing{\section}{0pt}{30pt}{0pt}
+\titlespacing{\section}{0pt}{5em}{0pt}
 
 %% para spacing instead of indents
 \setlength{\parindent}{0pt}
@@ -52,7 +52,7 @@
 
 
 %% Two column  layout
-\setlength{\columnsep}{12pt}
+\setlength{\columnsep}{0.5em}
 % \setlength{\columnseprule}{0.1pt}
 
 % right aligned tabularx
@@ -90,7 +90,8 @@
 \setlength{\abovecaptionskip}{3pt plus 2pt minus 3pt}
 
 %% restyle sectino headers
-\titleformat{\section}{\normalfont\Large\bfseries}{\thesection.}{1em}{}
+\titleformat{\section}{\normalfont\Huge\bfseries}{\thesection.}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
 % \let\clearpage\relax
 
 % Restyle Title
