@@ -19,6 +19,7 @@
 \usepackage{booktabs}
 \usepackage{multicol}
 \usepackage{enumitem}
+\usepackage{fontawesome5}
 \usepackage[font=footnotesize, labelfont=bf]{caption}
 \usepackage[
 	backend=biber,
@@ -63,6 +64,10 @@
 
 % leftbar for blockquotes
 \renewenvironment{leftbar}
+{\def\FrameCommand{\hspace{0em}\vrule width 0.5pt \hspace{1em}}\MakeFramed {\advance\hsize-\width \FrameRestore}}
+{\endMakeFramed}
+
+\newenvironment{ideabox}
 {\def\FrameCommand{\hspace{0em}\vrule width 0.5pt \hspace{1em}}\MakeFramed {\advance\hsize-\width \FrameRestore}}
 {\endMakeFramed}
 
@@ -118,6 +123,12 @@
 
 % 'draft' command to visually distinguish placehodler text
 \newcommand{\draft}[1]{\textcolor{gray}{\textit{#1}}}
+
+% 'todo' command to mark notes to self
+\newcommand{\todo}[1]{\textcolor{red}{#1}}
+
+% idea command to indicated a proposed idea
+\newcommand{\idea}[1]{\begin{ideabox}\faLightbulb[regular] - #1\end{ideabox}}
 
 % --------------------------------------------------------
 % Bibliography
