@@ -12,16 +12,24 @@
 	\item Language Games
 	\begin{itemize}
 		\item Category structure of phonemes
-		\item family resemlances in cognitive lit
-		\item family resemblances that differ in many senses really are defined by contrast between them -- which sense lets me distinguish the objects in question?
+		\item family resemlances in cognitive lit - why is phonetic identification a family resemblance strucutre?
+		\item general statement of geometry of perceptual spaces
+		\item family resemblances that differ in many senses really are defined by contrast between them -- which sense lets me distinguish the objects in question? put another way, selecting or rotating axes depending on short-term acoustic statistics.
+		\item update to idea of perceptual geometry to include contextual dependence and reweighting
 		\item Primary object is to learn the axes -- rather than learning some prebuilt structure that `exists in the world', brain has to figure out what parts of the world are informative, which is necessarily in context
 	\end{itemize}
 
 	\item Learning to play
 	\begin{itemize}
 		\item Infant speech learning, statistical regularity, perceptual warping
+		\item general statement about the normalization of redundancy and adaptation to statistical regularity as a fundamental part of the auditory system (or maybe a brief allusion to it and discuss in more detail in neurophys section)
 		\item But perceptual systems don't find `totally optimal' solutions as might be predicted from simpler experiments... 
 		\item Representativeness means that there will be contributions from all the feature axes, even when they're irrelevant in the particular context.
+	\end{itemize}
+
+	\item Neurophys
+	\begin{itemize}
+		\item 
 	\end{itemize}
 
 \end{itemize}
@@ -40,98 +48,78 @@ of similarities overlapping and criss-crossing: sometimes overall similarities, 
 
 \end{leftbar}
 
-Cognitive reality is characterized by its discreteness: rather than a continuous undifferentiated gradient wash of sensation and cognition, we experience objects, concepts, and thoughts. Speech is a continuous, high-dimensional, high-variability acoustic signal, yet it is perceived as a small number of relatively-discrete phonemes\cite{holtSpeechPerceptionCategorization2010a}. The acoustic structure of phonemes is a sort of "Family Resemblance"\cite{wittgensteinPhilosophicalInvestigations1968} --- the truly extravagant variability of speech has thus far defied any simple, definite acoustic parameterization of its phonemes. Instead, individual utterances within a phonetic category vary along high numbers of feature-dimensions, none of which are necessary nor sufficient for a listener to identify it\cite{Lisker1977}. \draft{some statement on how this is a big open questions in phonetics, auditory neuroscience, and cognition }
+Cognitive reality is characterized by its discreteness: rather than a continuous undifferentiated gradient wash of sensation and cognition, we experience objects, concepts, and thoughts. Speech is a continuous, high-dimensional, high-variability acoustic signal, yet it is perceived as a small number of relatively-discrete phonemes\cite{holtSpeechPerceptionCategorization2010a}. The acoustic structure of phonemes is a sort of "Family Resemblance"\cite{wittgensteinPhilosophicalInvestigations1968} --- the truly extravagant variability of speech has thus far defied any simple, definite acoustic parameterization of its phonemes. Instead, individual utterances within a phonetic category vary along high numbers of feature-dimensions, none of which are necessary nor sufficient for a listener to identify it\cite{Lisker1977}.
 
-\draft{speech categorization is a big neurolinguistic prob\cite{yiEncodingSpeechSounds2019}}
 
-\draft{maybe an additional paragraph on the preposterous difficulty to the auditory system}
 
-\draft{why haven't we done these experiments already? what's the role of animal models? what's the way forward??? neurophys in animals as speech models, but what *kind* of experiments are likely to help us with this question of what phonemes are.}
 
----
 
-\draft{the discussion of the failure of a fully-specified, prototype-style geometric model with a stable mean has been more fully articulated and argued in phonetics in the context of a contrastive hierarchy \cite{Dresher2008} -- indeed this is echoed in \cite{Kronrod2016a} indirectly, in the sense that some cues are more informative than others and thus since vowels have big overarching feature descriptions they are more clearly separated, rely less on the internal featural model, and have a more continuous perception within the category. The problem with the contrastive hierarchy is that is presupposes unproblematically the featural dimensions ("+nasal" is an unambiguous, nonprobabilistic description), and if instead the featural dimensions are probabilistic, analogue, etc. then fully specified minimal pairs and contrastive hierarchies are not in conflict, but instead reflectg the degree of information that is contained within a particular cue (check that kronrod didn't already say this). Basically what we're doing here is recasting this in a geometric lens that emphasizes the space.}
-
----
-
-The debate over cues being real is a potent one in linguistics and phonology "It is argued that it is inappropriate to ascribe a psychological status to cues whose only reality is their operational role as physical parameters whose manipulation can change the phonetic interpration of a signal"\cite{Bailey1980} except that one doesn't need to appeal to literally trying to recover the articulatory event, instead you can appeal to trying to recover the acoustic consequences of the articulatory event -- because these particular acoustic attributes covary, as they must given the integrated nature of the articulatory system, one can use that covariation as a hint for which of the cues should be informative at that time -- eg. some "seemingly phonetically unrelated cues" (but not necessarily) can indicate which contrasts are valuable at the given time: or, what do the cues "mean" given the totality of the acoustic context.
-
-\begin{leftbar}
-A perceptual system in which the information for phonetic perception was a set of cues would have to incorporate three kinds of knowledge if it were to function successfully. It would have to know, first, which aspects of the acoustic signal are cues and which are not; second, it would need to possess a sensitivity to the pattern of cooccurrence of cues for each phone in its perceptual repertoire; third, it would need to appreciate the proper temporal coordination of the cues within each pattern. There is no reason, in principle, why a device could not be built to perceive phonetic identity from a substrate of acoustic cues, provided it was endowed with an articulatory representation sufficient to embody these three kinds of knowledge. However, we doubt that such a system could evolve in the natural world. For a species to acquire a knowledge of articulatory constraints, it would be necessary first that information specifying those constraints be available for the species, and second that the species possess a prior sensitivity to that information. The knowledge that a particular set of cues combine to indicate the presence of a given phone could be acquired in either of two ways. The identity of the phone could be specified independently of the set of acoustic cues, but this would hardly solve the problem and would preempt the need to evolve a sensitivity to the cues. Alternatively, the signal could specify directly both the identity of the cues and their temporal coordination, but then information in the signal that specified the coherence of its elements would, isomorphically, specify the articulatory event from which that coherence derived. However, the presence of this information about articulation in the signal, and a predisposition to register it on the part of the perceiver, would obviate the need for any internalized articulatory referent to mediate the acoustic-phonetic translation.
-
-These considerations lead us to question the validity of equating the operational and functional definitions of an acoustic cue. A cue was defined operationally as a physical parameter of a speech signal whose manipulation systematically changes the phonetic interpretation of the signal. Although it is clear that perceptual sensitivity must exist to the consequences of manipulating a cue, it is not necessary to suppose that the cue is registered in perception as a discrete functional element.\cite{Bailey1980}
-
-\end{leftbar}
-
-\subsection{Learning to play}
-
-\idea{Start with demonstration from tensorflow.js playground that learns a simple 2-d nonlinearity by becoming sensitive to the product of the two `base' dimensions. it's a projection to a geometry that allows them to be discriminable. that's the basic idea.}
-
-In learning to identify the phonemes present in a given language, one must learn how the particular acoustic features of a phonetic class are similar to other members of the class and different than members of a different class. Such features can be based on formant transitions, timing and duration of silent gaps, frication, etc. and any number of combinations of "raw" acoustic information into higher-order descriptions. Unless sensitivity, or more generally, "representation" of such higher-order features is innate, the task of learning learning phonemes is not that of learning "where" each phoneme is clustered in some pre-existing phonetic-feature space, but instead that of \textit{learning which features are maximally informative to identify the phonemes.}\cite{kluenderLongstandingProblemsSpeech2019a} -- (\draft{note that we are agnostic to implementation here, not saying maximally informative dimensions and citing kluender in order to uncritically endorse their information-theoretic framework (though we will later critically suggest it), we could just as easily learn a positive, generative model of phoentic categories. The argument is that needing to learn the features themselves, and perhaps tautologically, the features that are learned are the ones that are capable of supporting phonetic identification. also the contribution from basic acoustic features/structure of acoustic reality is real, see Kuhl's `basic cuts' argument \cite{kuhlEarlyLanguageAcquisition2004}})
-
-The idea that speech acquisition necessarily involves learning the features that are maximally informative is demonstrated by the ability for infants to discriminate between the phonemes of any language, but during language acquisition become specifically attuned to the phonemes of the language(s) they are taught. Though this is typically discussed as learning the statistical regularities of speech  sounds (\textcolor{red}{need to cite more because claim of typicality}\cite{kuhlPhoneticLearningPathway2008}\cite{kuhlEarlyLanguageAcquisition2004}), the act of emphasizing the statistical regularity must necessarily mean collapsing those phoentic contrasts that are not present in the language -- they aren't informative because no one uses that contrast. \draft{indeed they trade off -- infants that are better at discriminating the phonemes in their language are worse at discrmiinating those in a non-native language\cite{kuhlPhoneticLearningPathway2008}}
-
-Arguably this is the central function of all sensory systems system - to exploit regularities in the statistical structure of sensory input to form a maximally efficient representation, \draft{begin here again with \cite{kuhlBrainMechanismsEarly2010}}. 
-
-\draft{relationship between generative and discriminitive models here... the means by which these features are learned is ultimately the question of implementation that grounds these orbiting ideas. How do family resemblances work? why is it possible that there are categories that operate without logical structure? why is it that we will use all the dimensions of a problem even when there is an optimal, low-dimension solution (contrast with techniques like SVM that without regularization inevitably converge on a `one true feature' that can perfectly distinguish states). what are phonemes is a question of how are they implemented. }
-
-\draft{and focusing on the acquisition of informative stimulus dimensions fundamentally alters the research question. The problem is the mutual translation/misundertanding of what cues *are* -- a lot of neurophys research into language ends up using parameterized speech because we want to create parameters and then look for analogies in the brain, either in single neurons or populations. Neuroscientists interpret these cues as `constitutive' of the phoneme rather than a particular cue describing it (try to find ye old phonetics lit that talks about cue validity as being a problem even in phonetics). This is the pt to turn to `so instead we need to let the brain reveal its order to us, when presented with a complex array of stimuli, which features does the brain encode and how are they represented???'}
-
-(babies initially can learn all phonemes\cite{kuhlEarlyLanguageAcquisition2004}, so they have to learn some feature which necessarily compresses the auditory space\cite{ForeignlanguageExperienceInfancy})
-(info theory stuff here)
-
----
-
-actually `warping' perceptual space relative to acoustic space is already a really common idea in phonetics lit\cite{iversonInfluencesPhoneticIdentification1996} and is a sorta trivial reformulation of the idea that the auditory system is learning to represent the maximally informative dimensions of the stimulus, so a perceptual warping is just a reflection of the condensation of representation of within-category variation (ie. not being represented/generalized over/compressed/whatever you want to call it) and a maximization of representation of the between-category variation. Accounts of exemplars and stimulus geometry are complementary here: saying that perceptual space is clustered near examplars and sparser away from them is the same thing as saying they are embedded in a space whose dimensions that maximize inter-category discriminability. Put another way, instances where there is not a clear examplar to `warp' perceptual space (as in the `low-r' group in \cite{iversonInfluencesPhoneticIdentification1996}) could also correspond to the absence of a clear perceptual dimension structure within the presented stimulus space: maybe those listeners discriminability feature dimensions don't feature F3 prominently, and in instances where clear exemplars warp the perceptual space, those dimensions are emphasized by increasing the weight of existing feature dimensions, or the perceptual space is `rotated' to emphasize them. 
-
+\textbf{Evidence supporting the family resemblance argument}
 \begin{itemize}
+	\item phonetic contrasts are multiply defined\cite{Lisker1977,Bailey1980}
 	\item Cognitive categorization learning mostly operates as family resemblances that have incomplete/nonplatonic feature sets that unite them (\cite{roschFamilyResemblancesStudies1975}\cite{roschWittgensteinCategorizationResearch1987} \cite{couchmanRulesResemblanceTheir2010})
 	\item tversky talked about this in terms of set theory and resemblance \cite{tverskyStudiesSimilarity1978} \cite{Tversky1970}
-	\item The notion of what even constitutes a "features" is ill-defined (history of phonetics stuff about how we've just been basically trying to reverse-engineer these)
-	\item The learning problem is one where the listener needs to learn *both* what constitutes a category *and* the features that are useful for determining category. (review some of caitlin's infant speech learning stuff)
+	\item People can switch discriminatory dimension depending on which is predictable vs. informative -- people use whatever cue is present and informative \cite{kiefteAbsorptionReliableSpectral2008}
+	\item animals use family resemblance of multiple features even when there is a single dimension that is perfectly informative of category membership \cite{leaUseMultipleDimensions2008, couchmanRulesResemblanceTheir2010}
+
 \end{itemize}
 
-\subsection{some orphaned categorization scraps}
+\textbf{Basic description of geometry of phonetic space}
 
-\todo{need some general description of 1) general categorization models, metric vs. set-based, 2) how they are applied to linguistic models}
 
 Category representation theories are intimately related (and occasionally literally isometric to \cite{Edelman1998}) to theories of the measurement of similarity, which is dominated by geometric models\cite{Tversky1977}. nearly universally presuppose that categories exist in a feature space such that there exist some number of features that describe each instance of an object to be categorized.
-
-So the determination of *what* the features are is of utmost importance. Traditional phonetics experiments attempt to parameterize a phoneme by producing synthetic sounds that vary parametrically across some feature. They then present these stimuli to people and 
 
 The history of this question includes Shepard and Tversky's multidimensional scaling and its criticisms, and also extends through Shepherds' "second-order isomorphisms" (cite representation is representation of similarity)
 
 Neuroscientists sorta blithely assume what the features of a stimulus are, from the seemingly harmless and physically based -- frequency, direction, angle, etc. -- to the absurd -- rsa et al. But these dimensions rarely behave like `real' perceptual dimensions \cite{krantzSimilarityRectanglesAnalysis1975a} -- the transformation is actually the critical part. 
 
-\begin{itemize}
-	\item Short description of phonetic acoustics, why they're games
-	\item General statement on importance of understanding neural implementation of a game-recognition system
-	\item The natural analog of the philosophical problem of universals in the conditioning paradigm is stimulus generalization \cite{roschWittgensteinCategorizationResearch1987}
-	\item parameterized vs natural speech is actually reflective of a much larger positivist/naturalist philosophical divide -- they presuppose by testing a parameter of category membership, but postiive evidence is not evidence that parameter is actually constitutive of the category itself -- for example if you had two categories "games" and "cars," "weight" might be a reasonably good way to assign category membership, but it is not at all the only, or even the most salient difference between those categories. Like i feel like I'm crazy sometimes because shouldn't the fact that synthesized speech sounds \textit{sound bad} be a \textit{problem?} They might have all the theoretical justification in the world but the fact that they so badly imitate what even a plausible phoneme would sound like should be like a red flag for the generalizability of the conclusions that can be drawn from them.
-	\item indeed feature hierarchies from phonetics belie the utility of parameterized stimuli
-	\item and categories are necessarily only defined in reference to one another, they participate in a `category space' -- so if you construct a category space with only one sensible axis between them you truly are not modeling the problem.
-	\item animals use family resemblance of multiple features even when there is a single dimension that is perfectly informative of category membership \cite{leaUseMultipleDimensions2008, couchmanRulesResemblanceTheir2010}
-	\item assuming feature dimensions is always a bad assumption -- eg what features have the metric structure that measure similarity/dissimilarity of rectangles? \cite{krantzSimilarityRectanglesAnalysis1975a}
-	\item end with three uh impacts: 1) observe how auditory system learns complex categories, 2) resolve questions in phonetics re: what phonemes "are," and 3) contribute to fundamental questions faced by all neural systems: how are the building blocks of sensory discretization that defines all our perceptual and cognitive systems learned and used? -- the gap of *implementation* is actually critical, seeing how a neural system learns attributes and categories could resolve 
+assuming feature dimensions is always a bad assumption -- eg what features have the metric structure that measure similarity/dissimilarity of rectangles? \cite{krantzSimilarityRectanglesAnalysis1975a}
 
-\end{itemize}
 
-\subsection{paradoxes}
+actually `warping' perceptual space relative to acoustic space is already a really common idea in phonetics lit\cite{iversonInfluencesPhoneticIdentification1996} and is a sorta trivial reformulation of the idea that the auditory system is learning to represent the maximally informative dimensions of the stimulus, so a perceptual warping is just a reflection of the condensation of representation of within-category variation (ie. not being represented/generalized over/compressed/whatever you want to call it) and a maximization of representation of the between-category variation. Accounts of exemplars and stimulus geometry are complementary here: saying that perceptual space is clustered near examplars and sparser away from them is the same thing as saying they are embedded in a space whose dimensions that maximize inter-category discriminability. Put another way, instances where there is not a clear examplar to `warp' perceptual space (as in the `low-r' group in \cite{iversonInfluencesPhoneticIdentification1996}) could also correspond to the absence of a clear perceptual dimension structure within the presented stimulus space: maybe those listeners discriminability feature dimensions don't feature F3 prominently, and in instances where clear exemplars warp the perceptual space, those dimensions are emphasized by increasing the weight of existing feature dimensions, or the perceptual space is `rotated' to emphasize them. 
 
-levels of analysis:
+\textbf{Context effects are reweighting stimulus dimensions, necessarily dependent on the comparisons/dimensions present}
 
-phonetic perception has paradoxes at several levels of analysis that are not mutually discrete.
+---
 
-\textbf{ontic/algorithmic}: what \textit{are} phonemes? are they positive descriptions of combinations of features, or negative descriptions of forbidden spectrotemporal state transitions?
+\draft{the discussion of the failure of a fully-specified, prototype-style geometric model with a stable mean has been more fully articulated and argued in phonetics in the context of a contrastive hierarchy \cite{Dresher2008} -- indeed this is echoed in \cite{Kronrod2016a} indirectly, in the sense that some cues are more informative than others and thus since vowels have big overarching feature descriptions they are more clearly separated, rely less on the internal featural model, and have a more continuous perception within the category. The problem with the contrastive hierarchy is that is presupposes unproblematically the featural dimensions ("+nasal" is an unambiguous, nonprobabilistic description), and if instead the featural dimensions are probabilistic, analogue, etc. then fully specified minimal pairs and contrastive hierarchies are not in conflict, but instead reflectg the degree of information that is contained within a particular cue. Indeed \cite{Kronrod2016a} specifically say that how the phonetic representations is of paramount importance in their future directions. Basically what we're doing here is recasting this in a geometric lens that emphasizes the space.}
 
-\textbf{implementation}: to some degree the methodological and theoretical disagreements between the feature-detection and population-computation models of phonetic perception mirror the single-cell/multicellular computation dichotomy described in the introduction of \cite{dubreuilComplementaryRolesDimensionality2020}. 
+\draft{relate back to similarity discussion at the beginning: in family resemblance categories, `which' dimension you select depends on the possible other phonemes in the space, or the possible variants in acoustic features that could conflict depending on the particularity of the speaker's voice/etc.}
 
-\begin{itemize}
-	\item speed of processing vs. variability within category
-	\item neurons that process auditory information at phonetic timescales are relatively insensitive to spectral quality \cite{norman-haignereHierarchicalIntegrationMultiple2020}
-\end{itemize}
+---
+
+The debate over cues being real is a potent one in linguistics and phonology "It is argued that it is inappropriate to ascribe a psychological status to cues whose only reality is their operational role as physical parameters whose manipulation can change the phonetic interpration of a signal"\cite{Bailey1980} except that one doesn't need to appeal to literally trying to recover the articulatory event, instead you can appeal to trying to recover the acoustic consequences of the articulatory event -- because these particular acoustic attributes covary, as they must given the integrated nature of the articulatory system, one can use that covariation as a hint for which of the cues should be informative at that time -- eg. some "seemingly phonetically unrelated cues" (but not necessarily) can indicate which contrasts are valuable at the given time: or, what do the cues "mean" given the totality of the acoustic context.\ref{note:cues}
+
+
+\draft{... so since the goal is not to prespecify cues/contrasts, recast the problem in terms of learning the dimensions of the stimulus space.}
+
+\subsection{Learning to play}
+
+\idea{Start with demonstration from tensorflow.js playground that learns a simple 2-d nonlinearity by becoming sensitive to the product of the two `base' dimensions. it's a projection to a geometry that allows them to be discriminable. that's the basic idea.}
+
+
+
+In learning to identify the phonemes present in a given language, one must learn how the particular acoustic features of a phonetic class are similar to other members of the class and different than members of a different class. Such features can be based on formant transitions, timing and duration of silent gaps, frication, etc. and any number of combinations of "raw" acoustic information into higher-order descriptions. Unless sensitivity, or more generally, "representation" of such higher-order features is innate, the task of learning learning phonemes is not that of learning "where" each phoneme is clustered in some pre-existing phonetic-feature space, but instead that of \textit{learning which features are maximally informative to identify the phonemes.}\cite{kluenderLongstandingProblemsSpeech2019a} -- (\draft{note that we are agnostic to implementation here, not saying maximally informative dimensions and citing kluender in order to uncritically endorse their information-theoretic framework (though we will later critically suggest it), we could just as easily learn a positive, generative model of phoentic categories. The argument is that needing to learn the features themselves, and perhaps tautologically, the features that are learned are the ones that are capable of supporting phonetic identification. also the contribution from basic acoustic features/structure of acoustic reality is real, see Kuhl's `basic cuts' argument \cite{kuhlEarlyLanguageAcquisition2004}})
+
+The idea that speech acquisition necessarily involves learning the features that are maximally informative is demonstrated by the ability for infants to discriminate between the phonemes of any language, but during language acquisition become specifically attuned to the phonemes of the language(s) they are taught. Though this is typically discussed as learning the statistical regularities of speech  sounds (\textcolor{red}{need to cite more because claim of typicality}\cite{kuhlPhoneticLearningPathway2008}\cite{kuhlEarlyLanguageAcquisition2004}), the act of emphasizing the statistical regularity must necessarily mean collapsing those phoentic contrasts that are not present in the language -- they aren't informative because no one uses that contrast. \draft{indeed they trade off -- infants that are better at discriminating the phonemes in their language are worse at discrmiinating those in a non-native language\cite{kuhlPhoneticLearningPathway2008}}
+
+
+(babies initially can learn all phonemes\cite{kuhlEarlyLanguageAcquisition2004}, so they have to learn some feature which necessarily compresses the auditory space\cite{ForeignlanguageExperienceInfancy})
+
+Arguably this is the central function of all sensory systems system - to exploit regularities in the statistical structure of sensory input to form a maximally efficient representation, \draft{begin here again with \cite{kuhlBrainMechanismsEarly2010}}. 
+
+
+
+\draft{and focusing on the acquisition of informative stimulus dimensions fundamentally alters the research question. The problem is the mutual translation/misundertanding of what cues *are* -- a lot of neurophys research into language ends up using parameterized speech because we want to create parameters and then look for analogies in the brain, either in single neurons or populations. Neuroscientists interpret these cues as `constitutive' of the phoneme rather than a particular cue describing it (try to find ye old phonetics lit that talks about cue validity as being a problem even in phonetics). This is the pt to turn to `so instead we need to let the brain reveal its order to us, when presented with a complex array of stimuli, which features does the brain encode and how are they represented???'}
+
+---
 
 \subsection{<some of that neural theories of phonetic processing}
+
+\draft{start with description of why this should be preposterously difficult for the auditory system, but that normalizing over statistical regularities is the bread and butter of the auditory system, and if that translates into reweighting a nonlinear basis set of phonetic perception then the problem becomes a whole lot more tractable. (mebs revisit why \cite{Bailey1980} thought it would be impossible without resorting to motor theories of language)}
+
+\draft{speech categorization is a big neurolinguistic prob\cite{yiEncodingSpeechSounds2019}}
+
 
 Rather than being indeependent `levels,' algorithm and implementation have to be the same thing -- the way that phonetic dimensions are implemented in the brain strongly constrains the possible types of dimensions that can be learned -- eg. people have tried to explain how context can be incorporated in a ton of different ways. 
 
@@ -173,6 +161,7 @@ We've even seen neurons remap their receptive fields to represent maximally info
 \item other reward-learning regions like RSC \cite{millerRetrosplenialCorticalRepresentations2019}
 \item multimodal representations and preserved neural manifold dynamics across inference tasks in M1 \cite{gallegoCorticalPopulationActivity2018}
 \item timescales of processing expand across auditory hierarchy (and more generally have different timescales of integration and lags) \cite{norman-haignereHierarchicalIntegrationMultiple2020} and are lateralized \cite{levyCircuitAsymmetriesUnderlie2019a}
+\item categorical representation of phonemes in STG, smooth gradients in F2 onset make discrete changes in linear readouts of "neural representation" \cite{changCategoricalSpeechRepresentation2010b}
 \end{itemize}
 
 probs w/ discriminatory models: how is the comparison done? eg. you could start learning features by just comparing every x thing with y thing, but then you would have to hold some representation of each in order to compare. 
@@ -183,13 +172,31 @@ computational. models that have attempted to explain phonetic processing??? is t
 
 zoo of processing models and discussion of bayesian generativ emodels \cite{Kronrod2016a}. categorical effects are from large amount of `noise' variance, or variance on uninformative dimensions. if it's the case that there are many dimensions that have imperfect, sometimes conflicting information, then that would be reflected in categorical perception. Their discussion asks the question what effects coarticulation might have on the meaning of tau, and this is a potential one -- it could be the case that since the category structure is a family resemblance, and as such only a few of the cues are informative at a particular time, then 
 
+\draft{relationship between generative and discriminitive models here... the means by which these features are learned is ultimately the question of implementation that grounds these orbiting ideas. How do family resemblances work? why is it possible that there are categories that operate without logical structure? why is it that we will use all the dimensions of a problem even when there is an optimal, low-dimension solution (contrast with techniques like SVM that without regularization inevitably converge on a `one true feature' that can perfectly distinguish states). what are phonemes is a question of how are they implemented. }
 
 
 \subsection{scraps}
 
 \begin{itemize}
-\item theoretical problems with simplified stimuli - low-dimensional and linearly-separable stimulus spaces are fundamentally different than the high complexity of naturalistic stimuli... for all we know the computations are just straight up not comparable! \cite{schuesslerInterplayRandomnessStructure2020}
+	\item Short description of phonetic acoustics, why they're games
+	\item General statement on importance of understanding neural implementation of a game-recognition system
+	\item parameterized vs natural speech is actually reflective of a much larger positivist/naturalist philosophical divide -- they presuppose by testing a parameter of category membership, but postiive evidence is not evidence that parameter is actually constitutive of the category itself -- for example if you had two categories "games" and "cars," "weight" might be a reasonably good way to assign category membership, but it is not at all the only, or even the most salient difference between those categories. Like i feel like I'm crazy sometimes because shouldn't the fact that synthesized speech sounds \textit{sound bad} be a \textit{problem?} They might have all the theoretical justification in the world but the fact that they so badly imitate what even a plausible phoneme would sound like should be like a red flag for the generalizability of the conclusions that can be drawn from them.
+	\item theoretical problems with simplified stimuli - low-dimensional and linearly-separable stimulus spaces are fundamentally different than the high complexity of naturalistic stimuli... for all we know the computations are just straight up not comparable! \cite{schuesslerInterplayRandomnessStructure2020}
 
+\end{itemize}
+
+
+levels of analysis:
+
+phonetic perception has paradoxes at several levels of analysis that are not mutually discrete.
+
+\textbf{ontic/algorithmic}: what \textit{are} phonemes? are they positive descriptions of combinations of features, or negative descriptions of forbidden spectrotemporal state transitions?
+
+\textbf{implementation}: to some degree the methodological and theoretical disagreements between the feature-detection and population-computation models of phonetic perception mirror the single-cell/multicellular computation dichotomy described in the introduction of \cite{dubreuilComplementaryRolesDimensionality2020}. 
+
+\begin{itemize}
+	\item speed of processing vs. variability within category
+	\item neurons that process auditory information at phonetic timescales are relatively insensitive to spectral quality \cite{norman-haignereHierarchicalIntegrationMultiple2020}
 \end{itemize}
 
 \end{multicols}
