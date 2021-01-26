@@ -52,6 +52,8 @@ Cognitive reality is characterized by its discreteness: rather than a continuous
 
 \draft{There are different types of category structure, and what typifies family resemblance structures is 1) multiply defined - category membership is assesed across many imperfect `features' none of which is necessary nor sufficient, 2) prototypicality - some instances are better `examples' of a category than others, category membership is not binary, 3) context dependent - which feature is important depends on the features present in the instance and the context in which it is being compared. \cite{roschFamilyResemblancesStudies1975}}
 
+\subsection{A Very Simple Model...}
+
 To begin perhaps purposely naively, we will formulate a geometric conception of perceptual categories:
 
 Suppose that some sensory stimulus $\mathbf{s}$ was composed of, and fully described by some set of physical attributes $a_i$ in the $d$-dimensional "stimulus space" $\mathbf{S}$
@@ -60,7 +62,7 @@ Suppose that some sensory stimulus $\mathbf{s}$ was composed of, and fully descr
 \mathbf{s} = \{a_0, a_i, \dots a_d\ : a \in \mathbf{S}\}
 \end{equation}
 
-For example, a digital sound is fully defined by the amplitudes of the waveform at each of its samples, or an image is defined as the wavelength and intensity of light at each pixel.
+For example, a digital sound is fully defined by the amplitudes of the waveform at each of its samples, or an image is defined as the wavelength and intensity of light at each pixel. Since $a_i$ are arbitrary, $\mathbf{S}$ can represent static or dynamic attributes. 
 
 The sensory stimulus $\mathbf{s}$ is processed into some percept $\mathbf{p}$ composed of perceptual attributes $b_i$ in the $e$-dimensional "perceptual space" $\mathbf{P}$
 
@@ -68,11 +70,28 @@ The sensory stimulus $\mathbf{s}$ is processed into some percept $\mathbf{p}$ co
 \mathbf{p} = \{b_0, b_i, \dots b_e\ : b \in \mathbf{P}\}
 \end{equation}
 
-in a perceptual computation $C$ that maps $\mathbf{S}$ to $\mathbf{P}$
+such that some perceptual computation $M$ maps $\mathbf{S}$ to $\mathbf{P}$
 
 \begin{equation}
-C = f: \mathbf{S} \to \mathbf{P}
+M = f: \mathbf{S} \to \mathbf{P}
 \end{equation} 
+
+from which the objective of the observer is to infer the category $c_s$ given $\mathbf{s}$ 
+
+\begin{equation}
+c_s = max( \{ p(c_i | M(\mathbf{s})) : c_i \in \mathbf{C} \})
+\end{equation}
+
+The form of the sensory-perceptual mapping $M$, the perceptual space $\mathbf{P}$ it constructs, and the inference of category identity $c_s$ it supports serve as a loom for a few threads of the speech perception problem scattered across a few disciplines and vocabularies.
+
+\subsection{...and its history}
+
+\draft{large part of history of phonetics research has been dissecting individual cues and assessing how they affect perception\cite{schertzPhoneticCueWeighting2020}, unfortunately they seem to have arrived at the conclusion "what perceptual features are necessary for the recognition of phonetic categories? none"\cite{HaskinsLaboratories2020}. This line of work stems from assuming that the mapping and the feature space is static, and there are these reliable cues, present across speakers, that are the constitutive feature of language (the P space). The inability to imagine the auditory soltuion to the problem ultimately drove the primacy of motor theories of language.}
+
+
+If $P$ is discrete, and the process of assigning category is feature comparison, we get tversky
+
+Feature selection provides a plausible explanation also for the SWS experiments -- when all the traditional acoustic cues are absent, the auditory system is capable of adapting to the cues that are present even if they're totally unbelievable if they're based on purely on the expected covariance of the signal\cite{remezSpeechPerceptionTraditional1981} -- when told what speech to expect, it's easier to choose the axes to focus on -- there seems to be a dual process where a certain amount of contextual information needs to be present in order to cue the selection, but there's no reason that needs to be a fully distinct process.
 
 \draft{some example of a sensory/perceptual mapping}
 
@@ -93,7 +112,7 @@ Category membership is computed probabilistically from some configuration space 
 	\item phonetic contrasts are multiply defined\cite{Lisker1977,Bailey1980}
 	\item Cognitive categorization learning mostly operates as family resemblances that have incomplete/nonplatonic feature sets that unite them (\cite{roschFamilyResemblancesStudies1975}\cite{roschWittgensteinCategorizationResearch1987} \cite{couchmanRulesResemblanceTheir2010})
 	\item tversky talked about this in terms of set theory and resemblance \cite{tverskyStudiesSimilarity1978} \cite{Tversky1970}
-	\item People can switch discriminatory dimension depending on which is predictable vs. informative -- people use whatever cue is present and informative \cite{kiefteAbsorptionReliableSpectral2008}
+	\item People can switch discriminatory dimension depending on which is predictable vs. informative -- people use whatever cue is present and informative \cite{kiefteAbsorptionReliableSpectral2008} and it's relatively stable within a person \cite{souzaReliabilityRepeatabilitySpeech2018}
 	\item animals use family resemblance of multiple features even when there is a single dimension that is perfectly informative of category membership \cite{leaUseMultipleDimensions2008, couchmanRulesResemblanceTheir2010}
 
 \end{itemize}
