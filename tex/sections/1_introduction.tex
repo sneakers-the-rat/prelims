@@ -48,7 +48,41 @@ of similarities overlapping and criss-crossing: sometimes overall similarities, 
 
 \end{leftbar}
 
-Cognitive reality is characterized by its discreteness: rather than a continuous undifferentiated gradient wash of sensation and cognition, we experience objects, concepts, and thoughts. Speech is a continuous, high-dimensional, high-variability acoustic signal, yet it is perceived as a small number of relatively-discrete phonemes\cite{holtSpeechPerceptionCategorization2010a}. The acoustic structure of phonemes is a sort of "Family Resemblance"\cite{wittgensteinPhilosophicalInvestigations1968} --- the truly extravagant variability of speech has thus far defied any simple, definite acoustic parameterization of its phonemes. Instead, individual utterances within a phonetic category vary along high numbers of feature-dimensions, none of which are necessary nor sufficient for a listener to identify it\cite{Lisker1977}.
+Cognitive reality is characterized by its discreteness: rather than a continuous undifferentiated gradient wash of sensation and cognition, we experience objects, concepts, and categories. Speech is a continuous, high-dimensional, high-variability acoustic signal, yet it is perceived as a small number of relatively-discrete phonemes\cite{holtSpeechPerceptionCategorization2010a}. The acoustic structure of phonemes is a sort of "Family Resemblance"\cite{wittgensteinPhilosophicalInvestigations1968} --- the truly extravagant variability of speech has thus far defied any simple, definite acoustic parameterization of its phonemes. Instead, individual utterances within a phonetic category vary along high numbers of feature-dimensions, none of which are necessary nor sufficient for a listener to identify it\cite{Lisker1977}.
+
+\draft{There are different types of category structure, and what typifies family resemblance structures is 1) multiply defined - category membership is assesed across many imperfect `features' none of which is necessary nor sufficient, 2) prototypicality - some instances are better `examples' of a category than others, category membership is not binary, 3) context dependent - which feature is important depends on the features present in the instance and the context in which it is being compared. \cite{roschFamilyResemblancesStudies1975}}
+
+To begin perhaps purposely naively, we will formulate a geometric conception of perceptual categories:
+
+Suppose that some sensory stimulus $\mathbf{s}$ was composed of, and fully described by some set of physical attributes $a_i$ in the $d$-dimensional "stimulus space" $\mathbf{S}$
+
+\begin{equation}
+\mathbf{s} = \{a_0, a_i, \dots a_d\ : a \in \mathbf{S}\}
+\end{equation}
+
+For example, a digital sound is fully defined by the amplitudes of the waveform at each of its samples, or an image is defined as the wavelength and intensity of light at each pixel.
+
+The sensory stimulus $\mathbf{s}$ is processed into some percept $\mathbf{p}$ composed of perceptual attributes $b_i$ in the $e$-dimensional "perceptual space" $\mathbf{P}$
+
+\begin{equation}
+\mathbf{p} = \{b_0, b_i, \dots b_e\ : b \in \mathbf{P}\}
+\end{equation}
+
+in a perceptual computation $C$ that maps $\mathbf{S}$ to $\mathbf{P}$
+
+\begin{equation}
+C = f: \mathbf{S} \to \mathbf{P}
+\end{equation} 
+
+\draft{some example of a sensory/perceptual mapping}
+
+Since the mapping is arbitrary, it can include state-dependence, etc. Since $\mathbf{S}$ is arbitrary, this mapping can also include time-dependent features. Note that $\mathbf{P}$ is not a neural space, but an abstract perceptual space that represents the features used to ... One implementation of the mapping could be weights, but we leave the form of the mapping abstract
+
+Category membership is computed probabilistically from some configuration space $\phi$...
+
+
+\draft{'collapsing' dimensions can be thought of as varying `weight' in a NN context, or as collapsing the axis in a geometric sense of `position'.}
+
 
 
 
@@ -64,7 +98,15 @@ Cognitive reality is characterized by its discreteness: rather than a continuous
 
 \end{itemize}
 
-\textbf{Basic description of geometry of phonetic space}
+\textbf{Different ways perceptual geometry gets talked about}
+\begin{itemize}
+	\item perceptual warping
+	\item bayesian modeling of cues
+	\item exploiting the statistical regularity to extract maximally informative dimensions
+	\item contrast hierarchy <-> tversky's trees in features of similarity, tversky's objections can also be re-expressed as a crit of shitty geometry, rather than abandoning geometry, we need to estimate a geometry that does operate metrically (even if the dimensions operate categorically rather than continuously) (though he does consider weights here \cite{ritovDifferentialWeightingCommon1990})
+\end{itemize}
+
+\textbf{Crits of basic geometry case and relationship with existing ways of talking abt it in order to introduce the importance of `feature selection'}
 
 
 Category representation theories are intimately related (and occasionally literally isometric to \cite{Edelman1998}) to theories of the measurement of similarity, which is dominated by geometric models\cite{Tversky1977}. nearly universally presuppose that categories exist in a feature space such that there exist some number of features that describe each instance of an object to be categorized.
@@ -75,8 +117,7 @@ Neuroscientists sorta blithely assume what the features of a stimulus are, from 
 
 assuming feature dimensions is always a bad assumption -- eg what features have the metric structure that measure similarity/dissimilarity of rectangles? \cite{krantzSimilarityRectanglesAnalysis1975a}
 
-
-actually `warping' perceptual space relative to acoustic space is already a really common idea in phonetics lit\cite{iversonInfluencesPhoneticIdentification1996} and is a sorta trivial reformulation of the idea that the auditory system is learning to represent the maximally informative dimensions of the stimulus, so a perceptual warping is just a reflection of the condensation of representation of within-category variation (ie. not being represented/generalized over/compressed/whatever you want to call it) and a maximization of representation of the between-category variation. Accounts of exemplars and stimulus geometry are complementary here: saying that perceptual space is clustered near examplars and sparser away from them is the same thing as saying they are embedded in a space whose dimensions that maximize inter-category discriminability. Put another way, instances where there is not a clear examplar to `warp' perceptual space (as in the `low-r' group in \cite{iversonInfluencesPhoneticIdentification1996}) could also correspond to the absence of a clear perceptual dimension structure within the presented stimulus space: maybe those listeners discriminability feature dimensions don't feature F3 prominently, and in instances where clear exemplars warp the perceptual space, those dimensions are emphasized by increasing the weight of existing feature dimensions, or the perceptual space is `rotated' to emphasize them. 
+actually `warping' perceptual space relative to acoustic space is already a really common idea in phonetics lit\cite{iversonInfluencesPhoneticIdentification1996,kuhlNewViewLanguage2000} and is a sorta trivial reformulation of the idea that the auditory system is learning to represent the maximally informative dimensions of the stimulus, so a perceptual warping is just a reflection of the condensation of representation of within-category variation (ie. not being represented/generalized over/compressed/whatever you want to call it) and a maximization of representation of the between-category variation. Accounts of exemplars and stimulus geometry are complementary here: saying that perceptual space is clustered near examplars and sparser away from them is the same thing as saying they are embedded in a space whose dimensions that maximize inter-category discriminability. Put another way, instances where there is not a clear examplar to `warp' perceptual space (as in the `low-r' group in \cite{iversonInfluencesPhoneticIdentification1996}) could also correspond to the absence of a clear perceptual dimension structure within the presented stimulus space: maybe those listeners discriminability feature dimensions don't feature F3 prominently, and in instances where clear exemplars warp the perceptual space, those dimensions are emphasized by increasing the weight of existing feature dimensions, or the perceptual space is `rotated' to emphasize them. 
 
 \textbf{Context effects are reweighting stimulus dimensions, necessarily dependent on the comparisons/dimensions present}
 
