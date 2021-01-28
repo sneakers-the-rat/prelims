@@ -86,10 +86,47 @@ The form of the sensory-perceptual mapping $M$, the perceptual space $\mathbf{P}
 
 \subsection{...and its history}
 
-\draft{large part of history of phonetics research has been dissecting individual cues and assessing how they affect perception\cite{schertzPhoneticCueWeighting2020}, unfortunately they seem to have arrived at the conclusion "what perceptual features are necessary for the recognition of phonetic categories? none"\cite{HaskinsLaboratories2020}. This line of work stems from assuming that the mapping and the feature space is static, and there are these reliable cues, present across speakers, that are the constitutive feature of language (the P space). The inability to imagine the auditory soltuion to the problem ultimately drove the primacy of motor theories of language.}
+A prominent strain of phonetics research in the US, largely associated with the Haskins Labs (\cite{schertzPhoneticCueWeighting2020} and see \cite[p.~51]{ohalaGuideHistoryPhonetic1999}), has characterized the speech perception problem as resolving a set of acoustic "cues" into phonetic identity:
+
+\begin{leftbar}
+"Liberman, Cooper, and Pierre Delattre began to study the acoustic speech signal, to determine how it represents the consonants and vowels of spoken words, and to discover the acoustic structure (the `cues') essential for their identification by listeners. [\dots] By selectively including and eliminating elements of acoustic structure,l Liberman and his colleagues could determine what bits of structure provided information for the different phonetic properties of spoken words."
+
+-Carol Fowler \& Katherine S. Harris in \cite[p.~51]{ohalaGuideHistoryPhonetic1999}
+\end{leftbar}
+
+The "cue discovery" paradigm of phonetics research posits that, for the auditory component of phonetic perception, the elements in $\mathbf{P}$ are linear combinations of the features in $\mathbf{S}$ whose manipulation can influence the identity of the perceived phoneme. These features represent familiar phonetic parameterizations like voice onset times or formant frequency ratios. The mapping $M$ that constructs $\mathbf{p}$ is taken to be a fixed, innate feature of the auditory system: "this version of the auditory theory takes the perceived boundary between one phonetic category and another to correspond to a naturally-occurring discontinuity in perception of the relevant acoustic continuum." \cite{Liberman1985a}. 
+
+The conclusion of cue-based research is summarized neatly by Philip, Robert E. Remez, and Jennifer Pardo with respect to their sinewave synthesis experiments: "Question: Which acoustic elements are essential for the perception of speech? Answer: None\cite{HaskinsLaboratories2020}." The failure to find a simple parameterization of phonetic categories as acoustic cues motivated an abandonment of an acoustic account of phonetic perception entirely in favor of a motor theory of perception that positied a special, evolved "speech module" that linked the wily acoustics of speech sounds to the action of the articulatory system:
+
+\begin{leftbar}
+"For if phonetic categories were acoustic patterns, and if, accordingly, phonetic perception were properly auditory, one should be able to describe quite straightforwardly the acoustic basis for the phonetic category and its associated percept. According to the motor theory, by contrast, one would expect the acoustic signal to serve only as a source of information about the gestures; hence the gestures would properly define the category"
+\cite{Liberman1985a}
+\end{leftbar}
+
+Purely motor theories of speech have been diversely problematized, not least of all by the many demonstrations that animals that conspicuously lack a human articulatory system are capable of phonetic categorization\cite{Carbonell2014,Lotto1997,Kluender2000}. The acoustic problem of speech perception was simply too difficult to be solved by an evolutionarily plausible auditory system -- how could the family resemblance structure of phonetic categories be learned without some explicit, innate knowledge of the acoustic consequences of articulation?\cite{Bailey1980} 
+
+Research on infant acquisition of speech sounds has since demonstrated the profound plasticity of the auditory system and its ability to learn the complex statistical dependencies between the acoustic attributes of speech\cite{kuhlNewViewLanguage2000}. A family of models based primarily on the work of Patricia Kuhl and colleagues describe the stimulus space $\mathbf{S}$ as acoustic features based on the "basic cuts" of sensitivity in the auditory system\cite{kuhlEarlyLanguageAcquisition2004}. Infants exploit the statistical regularity and patterns of feature co-uccurance to learn some mapping $M$ that constructs a "warped" perceptual space $\mathbf{P}$ that clusters features in $\mathbf{S}$ into acoustic "prototypes."\cite{kuhlNewViewLanguage2000} 
+
+Phonetic category identity then consists of some density in $\mathbf{P}$, the center of which is the "ideal" phonetic exemplar most likely to be identified with a particular categoery, and proceeding from this center point one transitions from off-target imperfect examplars to overlapping densities of other phonetic categories. Extensions to the model make this formulation explicit, like Kronrod, Coppess, and Feldman's\cite{Kronrod2016a} bayesian model that offers a unified explanation of the strong categorical perception of stop consonants and the weaker categorical perception of vowels. Their model describes phonetic identification as an inference problem that depends on both the acoustic properties of a stimulus and prior knowledge of phonetic categories, defined as some mean and variance in an arbitrary perceptual space. 
+
+In this model, the difficulty of the acoustic problem of speech perception carefully described by cue-centric phonetic research is resolved by suggesting the auditory system relies on sharp internal representations of category identity for phonemes that have a large degree of uninformative variaance, like stop consonants. 
+
+The degree of arbitrariness is problematic for the model, however. The proposition that there is some stimulus space $\mathbf{P}$ that supports linearly-separable phonetic categories is emphatically counterevidenced by the 70 years of cue-based research that has attempted to find one. 
+
+
+Improvement on this model is \cite{Kronrod2016a}, which accounts for some of the non-categorical effects in the perceptual magnet space by suggesting that vowels have more informative variation and rely less on internal representations... this ultimately is just kciing the can down the road bc it can't really explain the profound degradations of information ie. in sine-wave and noise-vocoded speech. 
+
+\draft{Their future directions says that identifying and learning the dimensions is of critical importance, we can extend our model by continuing Kronrod's emphasis on the information contained in each perceptual dimension and allow it to vary by context...}
+
+\subsection{An extension to our model...}
+
+\draft{Add model details and findings from attention-based models in deep learning}
+
+\subsection{And its implications...}
 
 
 If $P$ is discrete, and the process of assigning category is feature comparison, we get tversky
+
 
 Feature selection provides a plausible explanation also for the SWS experiments -- when all the traditional acoustic cues are absent, the auditory system is capable of adapting to the cues that are present even if they're totally unbelievable if they're based on purely on the expected covariance of the signal\cite{remezSpeechPerceptionTraditional1981} -- when told what speech to expect, it's easier to choose the axes to focus on -- there seems to be a dual process where a certain amount of contextual information needs to be present in order to cue the selection, but there's no reason that needs to be a fully distinct process.
 
