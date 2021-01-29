@@ -59,6 +59,7 @@ To begin perhaps purposely naively, we will formulate a geometric conception of 
 Suppose that some sensory stimulus $\mathbf{s}$ was composed of, and fully described by some set of physical attributes $a_i$ in the $d$-dimensional "stimulus space" $\mathbf{S}$
 
 \begin{equation}
+\label{eqn:s}
 \mathbf{s} = \{a_0, a_i, \dots a_d\ : a \in \mathbf{S}\}
 \end{equation}
 
@@ -67,19 +68,27 @@ For example, a digital sound is fully defined by the amplitudes of the waveform 
 The sensory stimulus $\mathbf{s}$ is processed into some percept $\mathbf{p}$ composed of perceptual attributes $b_i$ in the $e$-dimensional "perceptual space" $\mathbf{P}$
 
 \begin{equation}
+\label{eqn:p}
 \mathbf{p} = \{b_0, b_i, \dots b_e\ : b \in \mathbf{P}\}
 \end{equation}
 
 such that some perceptual computation $M$ maps $\mathbf{S}$ to $\mathbf{P}$
 
 \begin{equation}
+\label{eqn:map}
 M = f: \mathbf{S} \to \mathbf{P}
 \end{equation} 
+
+\begin{equation}
+\label{eqn:pfroms}
+\mathbf{p} = M(\mathbf{s})
+\end{equation}
 
 from which the objective of the observer is to infer the category $c_s$ given $\mathbf{s}$ 
 
 \begin{equation}
-c_s = max( \{ p(c_i | M(\mathbf{s})) : c_i \in \mathbf{C} \})
+\label{eqn:infer}
+c_s = max( \{ p(c_i | \mathbf{p}) : c_i \in \mathbf{C} \})
 \end{equation}
 
 The form of the sensory-perceptual mapping $M$, the perceptual space $\mathbf{P}$ it constructs, and the inference of category identity $c_s$ it supports serve as a loom for a few threads of the speech perception problem scattered across a few disciplines and vocabularies.
@@ -113,7 +122,7 @@ Phonetic category identity then consists of some density in $\mathbf{P}$, the ce
 
 In this model, the difficulty of the acoustic problem of speech perception carefully described by cue-centric phonetic research is resolved by suggesting the auditory system relies on sharp internal representations of category identity for phonemes that have a large degree of uninformative variaance, like stop consonants. 
 
-The degree of arbitrariness is problematic for the model, however. The proposition that there is some stimulus space $\mathbf{P}$ that supports linearly-separable phonetic categories is emphatically counterevidenced by the 70 years of cue-based research that has attempted to find one. 
+The degree of arbitrariness is problematic for the model, however. The proposition that there is some stimulus space $\mathbf{P}$ that supports linearly-separable phonetic categories is emphatically counterevidenced by the 70 years of cue-based research that has attempted to find one. These prototype models, without weighting for the informativeness of a particular dimension in context (as opposed to some global weight) would be vulnerable to misidentifying speech when the most dominant cue was made redundant, when in fact human listeners will adapt to using a more informative cue. In fact a lot of the research relies on carefully parameterized speech, so if they considered the cases where those cues failed then such a single-density-based prototype model. Having nonlinear blobby parameterizations of prototypes doesn't really solve the problem either, as you would then just require an additional downstream `readout' layer that could compute the conditions where a particular dimension 
 
 
 Improvement on this model is \cite{Kronrod2016a}, which accounts for some of the non-categorical effects in the perceptual magnet space by suggesting that vowels have more informative variation and rely less on internal representations... this ultimately is just kciing the can down the road bc it can't really explain the profound degradations of information ie. in sine-wave and noise-vocoded speech. 
@@ -124,7 +133,19 @@ Improvement on this model is \cite{Kronrod2016a}, which accounts for some of the
 
 \subsection{An extension to our model...}
 
-\draft{Add model details and findings from attention-based models in deep learning}
+Instead of a static perceptual space $\mathbf{P}$ where a given stimulus $\mathbf{s}$ is mapped to a single percept $\mathbf{p}$ (ie. $M$ is injective), we can extend our very simple model by introducing some notion of reweighting perceptual dimensions. Rather than inferring category directly from $\mathbf{P}$ as in eq. \ref{eqn:infer}, the features $b_e \in \mathbf{P}$ are reweighted by some weight vector $\mathbf{w}$ computed as some function $W$ of the representation $\mathbf{p} = M(\mathbf{s})$ and some prior knowledge of the category structure of $\mathbf{C}$
+
+\begin{equation}
+\label{eqn:w}
+\mathbf{w} = W(\mathbf{p}, \mathbf{C})
+\end{equation}
+
+\begin{equation}
+\label{eqn:infer_2}
+c_s = max\big( \big\{ p(c_i | \mathbf{p} \cdot \mathbf{w}) : c_i \in \mathbf{C} \big\}\big)
+\end{equation}
+
+Recall that since the features $a \in \mathbf{S}$ are arbitrary, they can include time-varying features, so the weighting function $W$ can, for example, incorporate contextual effects from the recent perceptual past. Category inference being dependent on $W$ has equivalent interpretations in the parlance of artificial neural networks and geometry: as a self-attention mechanism (eg. \cite{vaswaniAttentionAllYou2017}) giving higher weight to more informative features, or as "collapsing" uninformative dimensions. 
 
 \subsection{And its implications...}
 
