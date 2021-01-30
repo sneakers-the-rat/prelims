@@ -149,6 +149,48 @@ Recall that since the features $a \in \mathbf{S}$ are arbitrary, they can includ
 
 \subsection{And its implications...}
 
+The notion of different perceptual features having different weights or importance depending on the acoustic context and the category structure of the phonemes for a particular language is of course far from new. 
+
+A parallel line of thought to the generative models that posit phonetic identity as some positive description of cues or perceptual features are discriminative models that focuses on the features that can be used to tell phonemes apart. A prominent family of discriminative models in phonetics are those that describe a hierarchy of contrastive features\cite{Dresher2008,clementsFeatureOrganization2006,halleFeatureSpreadingRepresentation2000}. Though they are diverse in their details, in these models $M$ is again typically some fixed feature of the auditory system, and the perceptual space $\mathbf{P}$ that it constructs is some set of high-level descriptions like voicing, frication, or articulator configuration. Typically these features are binary (eg. +/- voiced), rather than continuous.
+
+\begin{figure}[H]
+\includegraphics[width=\columnwidth]{russian_vowel_hierarchy.png}
+\caption{Contrastive hierarchy for Russian Vowels, reproduced from \cite{iosadVowelReductionRussian2012} without permission}
+\label{fig:hierarchy}
+\end{figure}
+
+As an example, consider the proposed contrastive feature hierarchy for russian vowels from \cite{iosadVowelReductionRussian2012} (Figure \ref{fig:hierarchy}). Vowel identification is dominated by the primary contrast of +/- back, and successive constrastive features eliminate candidate phonemes until the true phoneme is identified. $W$'s dependence on $\mathbf{C}$ is exemplified (\draft{fix passive voice..}) by its treatment of "round": -back vowels [e i] are fully determined by +/- high, so for a percept $\mathbf{p}$ with -back, the weight of "round" should be 0. Put another way, the importance of a given feature is dependent on the phonemes that are left ambiguous without it. Any given feature's importance depends on both the set of available features and the set of available categories. 
+
+The notion of the informativeness of different featural dimensions has been given its fullest treatment in Keith Kluender and Christian Stilp's application of information theory to phonetic perception\cite{kluenderLongstandingProblemsSpeech2019a,kluenderPerceptionVowelSounds2013,stilpEfficientCodingStatistically2012,stilpRapidEfficientCoding2010}. They summarize their argument, elegantly as always:
+
+\begin{leftbar}
+"If one's problem is finding the right fencing to corral a unicorm, then there is really no problem at all. Instead the problem is dissolved upon discovery that unicorns do not exist.
+
+Here, we ask the reader to consider the possibility that there are no objects of perception [...]. Like unicorns, they do not exist at all. Instead, there are \textit{objectives} for perception. [...] Perceptual success does not require recovery or representations of the world per se." \cite{kluenderLongstandingProblemsSpeech2019a}
+\end{leftbar}
+
+They argue that the central operation of sensory systems is to adapt to regularity at multiple scales in order to efficiently extract meaningful information from their environment. Rather than a faithful representation of articulatory maneuvers (as in motor theory) or a warped, but still bijective relationship between the acoustic space and perceptual space (as in perceptual warping), they argue that sensory systems discard information that is predictable based on (multiscale) context, and instead represent just the unpredictable, "information-bearing" in an appropriately Shannonistic sense, dimensions. 
+
+\draft{(this might be a good place for a little compression algorithm toy example, like rather than representing a video that is like all black background but single white spot moving around as like all pixel values through all time, you might find some more efficient representation.)}
+
+In this formulation, the perceptual dimensions \
+
+(perhaps this should be read more as an endorsement of discriminative models of perception than generative, rather than literally as "there are no such things as phonemes." but there point remains similar: the objective of the listener is to tell the phonemes apart, rather than to represent them accurately in their perceptual sapce. )
+
+This account provides a satisfying answer not only to the form of $W$, but also provides a mechanism for learning the dimensions of $\mathbf{P}$ and makes specific predictions about what they should be. 
+
+\draft{arguably the design of audio and video codecs and compression algorithms rely on the reduction of noninformative stimulus dimensions. Compressing forward masked audio is just removing parts of the signal that you know will be filtered out by the auditory system in order to save space on the representation. (idk where i was going with this but could be a good thing for like broader impacts kinda stuff)}
+
+\draft{info theory, maximally informative dimensions}
+
+\draft{account for stuff like sine wave speech }
+
+\draft{but critically we still use all the cues that we have even when some rule would allow us to perfectly discriminate. this is the hallmark of a "feature" based vs rule-based system. If there were no featural dimensions, then one alternative would be a rule-based system that optimizes over information, which would be indistinguishable from a featural space with perfect reweighting... since reweighting is imperfect we justify the notion of a geometric conception of features. }
+
+\draft{end with implication of all of this is that the characterization of each of the spaces leads you to dramatically different methodologies and conclusions -- eg. arguably the cue-theorists arrived at the wrong conclusions was because of their belief about the innateness of the auditory-perceptual mapping: it must have been genetic, so therefore language is parsimoniously some special module, etc. etc. Research based on synthesized parameters based on cues then carry that error further by not representing the full scope of the problem. like how they eventually discarded the notion of cues (definitely need more detail in that story about specific examples of how cues are conflicting in different contexts) was because they considered their interaction with other cue dimensions. If we instead take the info-theoretic perspective seriously then learning a phoneme should be the act of learning the maximally informative dimensions. since we see individual differences in cue weighting within individuals, we would also expect people's dimensions to be different... but if there is only one or a few carefully parameterized dimensions of variation present in the stimulus set, of course they'll learn those, so we need to instead use a stimulus set that preserves as much of the natural variation within category as possible and allow the animals to learn the contrastive dimensions themselves. using only two categories is of course a simplification, but it still mimics at least the nature of the learning problem in qualitative form, and also [evidence that infants learn stop consonant boundaries early and they are primary and near-universal across languages indicating that they are sorta self-stable system where the big featural distinction of being stops makes it so they are like a `submodule' within a phonetic set.]}
+
+------------------
+
 \draft{don't fuck up and forget to talk about these \cite{aravamudhanPerceptualContextEffects2008,holtMeanMattersEffects2006,holtTemporallyNonadjacentNonlinguistic2005}}
 
 If $P$ is discrete, and the process of assigning category is feature comparison, we get tversky
@@ -156,17 +198,7 @@ If $P$ is discrete, and the process of assigning category is feature comparison,
 
 Feature selection provides a plausible explanation also for the SWS experiments -- when all the traditional acoustic cues are absent, the auditory system is capable of adapting to the cues that are present even if they're totally unbelievable if they're based on purely on the expected covariance of the signal\cite{remezSpeechPerceptionTraditional1981} -- when told what speech to expect, it's easier to choose the axes to focus on -- there seems to be a dual process where a certain amount of contextual information needs to be present in order to cue the selection, but there's no reason that needs to be a fully distinct process.
 
-\draft{some example of a sensory/perceptual mapping}
-
-Since the mapping is arbitrary, it can include state-dependence, etc. Since $\mathbf{S}$ is arbitrary, this mapping can also include time-dependent features. Note that $\mathbf{P}$ is not a neural space, but an abstract perceptual space that represents the features used to ... One implementation of the mapping could be weights, but we leave the form of the mapping abstract
-
 Category membership is computed probabilistically from some configuration space $\phi$...
-
-
-\draft{'collapsing' dimensions can be thought of as varying `weight' in a NN context, or as collapsing the axis in a geometric sense of `position'.}
-
-
-
 
 
 
@@ -292,6 +324,8 @@ We've even seen neurons remap their receptive fields to represent maximally info
 \end{itemize}
 
 probs w/ discriminatory models: how is the comparison done? eg. you could start learning features by just comparing every x thing with y thing, but then you would have to hold some representation of each in order to compare. 
+
+\idea{start this section by introducing the necessity of having a neural implementation stage in the model, and end it by comparing to previous efforts to relate the different geometric spaces. say that assuming the featural dimensions and the neural dimensions is a central failure of geometric analysis models, like the shitty application of the second order isomorphism that is RSA, and then use that to go into the section about `so here's what i'm proposing that we do differently'}
 
 \subsection{models}
 
