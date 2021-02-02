@@ -84,6 +84,7 @@
    BoldFont = Graphik Bold,
    ItalicFont = Graphik Light Italic
 ]
+\newfontface\papyrus{Papyrus}
 % \newfontface\minion{Minion Pro Regular}[
 %     BoldFont = Minion Pro Bold,
 %     ItalicFont = Minion Pro Italic,
@@ -132,8 +133,15 @@
 % 'todo' command to mark notes to self
 \newcommand{\todo}[1]{\textcolor{red}{#1}}
 
-% idea command to indicated a proposed idea
+% idea command to indicate a proposed idea
 \newcommand{\idea}[1]{\begin{ideabox}\faLightbulb[regular] - #1\end{ideabox}}
+
+% sarcasm command for uh sarcasm
+\newcommand{\sarcasm}[1]{%
+\includegraphics[height=11pt]{upside_down_smiley.png} %
+\papyrus \textcolor{HotPink}{\char`\~ #1 \char`\~}%
+\includegraphics[height=11pt]{upside_down_smiley.png}%
+\normalfont}
 
 % --------------------------------------------------------
 % Figures
