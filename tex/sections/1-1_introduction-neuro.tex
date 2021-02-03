@@ -1,0 +1,108 @@
+%!TEX root = ../prelims_main.tex
+
+
+
+
+\subsection{Neural mechs}
+
+Arguably a computational strategy common to all sensory systems is to exploit regularities in the statistical structure of the natural world to form an efficient sensory representation\cite{kuhlBrainMechanismsEarly2010,kingRecentAdvancesUnderstanding2018a}(\todo{cite more here bc broad claim}). Though the task of phonetic perception is a truly monstrous one (\draft{expand more here?}), work since the heyday of motor theories has demonstrated the remarkable ability of the auditory system to perform the fundamental computations of phonetic categorization has given the problem an air of tractability. And though we still are methodologically limited in our ability to study spech perception in humans at the spatiotemporal scales of its computation, work in animal models as well as recent advances in human brain electrophysiology have given some of the first glimpses. 
+
+
+
+
+
+\idea{literally follow the bouncing ball along the bottom of your screen to this freaking paper \cite{kingRecentAdvancesUnderstanding2018a}}
+
+
+
+\draft{speech categorization is a big neurolinguistic prob\cite{yiEncodingSpeechSounds2019}}
+
+Our model until now has been purposefully agnostic about its implementation in the brain. Rather than being indeependent `levels,' algorithm and implementation have to be the same thing -- the way that phonetic dimensions are implemented in the brain strongly constrains the possible types of dimensions that can be learned -- eg. people have tried to explain how context can be incorporated in a ton of different ways. And this is reflective of the larger state of phonetic perception research --- lots of theories, very little grounding in neurophysiology.
+
+It's all about the left anterior superior temporal gyrus\cite{yiEncodingSpeechSounds2019}. Specifically, neurons in STG encode higher-order acoustic properties that correspond to those present in categories of speech sounds (eg. frication vs. sonority, formant band combinations). Tuning isn't `clean' -- neighboring cells have dramatically different tuning, and all reflect some sort of complex spectrotemporal sensitivity (firing to specific speech sounds, but none to tones/simple sounds) (left aSTG)\cite{chanSpeechSpecificTuningNeurons2014}, and are very heterogeneous between people. combined with animal lit about developed sensitivity, it's probably the case that people learn their own basis sets for feature detection in secondary auditory cortical areas. Indeed different people have different cue weightings that are more or less adaptive\cite{clayardsDifferencesCueWeights2018}
+
+\draft{get putative mouse "analogue" from crystal engineer's papers}
+
+\draft{vocalization sensitive neurons in anterior left acx with different projection patterns from/to L6 that are experience dependent. (cfos\cite{levyCircuitAsymmetriesUnderlie2019a})}
+
+Reciprocal connections with straitum could facilitate the plasticity in cortex b/c dopaminergic projections responsive to reward \cite{fengRoleHumanAuditory2018}
+
+Auditory system makes efficient codes that collapse uninformative variability\cite{smithEfficientAuditoryCoding2006a,stilpRapidEfficientCoding2010}, and learns the statistical structure inherent in acoustic reality \cite{schiavoCapacitiesNeuralMechanisms2019} and phonetic production specifically\cite{kuhlNewViewLanguage2000} -- responses to sound become "non-isomorphic" to the acoustic features in the sound \cite{stilpEfficientCodingStatistically2012,wangNeuralCodingStrategies2007} as dimensions that are more informative than raw acoustic features are computed. *not* representing the sound precisely is more efficient than representing it directly becuase then you can take advantage of the *informative* elements of the sound rather than the ones that are spandrels of the physics of the acoustic generator.
+---
+
+Lucky for us... learning features is like exactly what deep neural networks do, and is a sorta trivial extension of another way of viewing populations: response profiles of neurons...
+
+Lots of people already talking about this, but even criticisms sorta treat perceptual dimensions as a given, and it is the brain's fault that it doesn't represent them. \cite{goddardInterpretingDimensionsNeural2018a}
+
+Brain does indeed learn and use multiple stimulus dimensions rather than computing stimulus dimensions independently --- so behavioral results from family resemblance experiments actually should be expected\cite{macellaioWhySensoryNeurons2020}
+
+This also merges us with kluender/stilp's work on efficient coding, removing unnecessary stimulus dimensions (reread/cite `longstanding problems disappear in information theoretic framework')
+
+---
+
+Also, multidimensionally tuned neurons are like already there lol
+
+---
+
+so multidimensionally tuned neurons, family resemblance data, and the highly-correlated spectral characteristics of sound all suggest that phonemes need to be interrogated in their natural complexity, 
+
+---
+
+We've even seen neurons remap their receptive fields to represent maximally informative dimensions\cite{Polley2006}
+
+\begin{itemize}
+\item auditory processing as domain-general and domain-specific across multiple timescales \cite{norman-haignereHierarchicalIntegrationMultiple2020}
+\item why are auditory neurons potentialyl sensitive to multiple stimulus features/how does that contribute to generalizable ill-defined catgories? \cite{macellaioWhySensoryNeurons2020}
+\item abrupt transitions, at least in neural data \cite{durstewitzAbruptTransitionsPrefrontal2010}
+\item other reward-learning regions like RSC \cite{millerRetrosplenialCorticalRepresentations2019}
+\item multimodal representations and preserved neural manifold dynamics across inference tasks in M1 \cite{gallegoCorticalPopulationActivity2018}
+\item timescales of processing expand across auditory hierarchy (and more generally have different timescales of integration and lags) \cite{norman-haignereHierarchicalIntegrationMultiple2020} and are lateralized \cite{levyCircuitAsymmetriesUnderlie2019a}
+\item categorical representation of phonemes in STG, smooth gradients in F2 onset make discrete changes in linear readouts of "neural representation" \cite{changCategoricalSpeechRepresentation2010b}
+\item freaking the multiplexing of stimulus dimensions also exists in auditory cortical neurons doiiiii \cite{walkerMultiplexedRobustRepresentations2011,bizleyInterdependentEncodingPitch2009b}
+\item contributions from basal ganglia in reward learning for acoustic dimentions \cite{limHowMayBasal2014}
+\item this bif ol review \cite{rauscheckerMapsStreamsAuditory2009b}
+\end{itemize}
+
+probs w/ discriminatory models: how is the comparison done? eg. you could start learning features by just comparing every x thing with y thing, but then you would have to hold some representation of each in order to compare. 
+
+\idea{start this section by introducing the necessity of having a neural implementation stage in the model, and end it by comparing to previous efforts to relate the different geometric spaces. say that assuming the featural dimensions and the neural dimensions is a central failure of geometric analysis models, like the shitty application of the second order isomorphism that is RSA, and then use that to go into the section about `so here's what i'm proposing that we do differently'}
+
+\subsection{models}
+
+computational. models that have attempted to explain phonetic processing??? is this its own section or what?
+
+zoo of processing models and discussion of bayesian generativ emodels \cite{Kronrod2016a}. categorical effects are from large amount of `noise' variance, or variance on uninformative dimensions. if it's the case that there are many dimensions that have imperfect, sometimes conflicting information, then that would be reflected in categorical perception. Their discussion asks the question what effects coarticulation might have on the meaning of tau, and this is a potential one -- it could be the case that since the category structure is a family resemblance, and as such only a few of the cues are informative at a particular time, then 
+
+\draft{relationship between generative and discriminitive models here... the means by which these features are learned is ultimately the question of implementation that grounds these orbiting ideas. How do family resemblances work? why is it possible that there are categories that operate without logical structure? why is it that we will use all the dimensions of a problem even when there is an optimal, low-dimension solution (contrast with techniques like SVM that without regularization inevitably converge on a `one true feature' that can perfectly distinguish states). what are phonemes is a question of how are they implemented. }
+
+
+\subsection{scraps}
+
+\draft{arguably the cue-theorists arrived at the wrong conclusions was because of their belief about the innateness of the auditory-perceptual mapping: it must have been genetic, so therefore language is parsimoniously some special module, etc. etc. Research based on synthesized parameters based on cues then carry that error further by not representing the full scope of the problem. like how they eventually discarded the notion of cues (definitely need more detail in that story about specific examples of how cues are conflicting in different contexts) was because they considered their interaction with other cue dimensions. If we instead take the info-theoretic perspective seriously then learning a phoneme should be the act of learning the maximally informative dimensions. since we see individual differences in cue weighting within individuals, we would also expect people's dimensions to be different... but if there is only one or a few carefully parameterized dimensions of variation present in the stimulus set, of course they'll learn those, so we need to instead use a stimulus set that preserves as much of the natural variation within category as possible and allow the animals to learn the contrastive dimensions themselves. using only two categories is of course a simplification, but it still mimics at least the nature of the learning problem in qualitative form, and also [evidence that infants learn stop consonant boundaries early and they are primary and near-universal across languages indicating that they are sorta self-stable system where the big featural distinction of being stops makes it so they are like a `submodule' within a phonetic set.]}
+
+\begin{itemize}
+	\item Short description of phonetic acoustics, why they're games
+	\item General statement on importance of understanding neural implementation of a game-recognition system
+	\item parameterized vs natural speech is actually reflective of a much larger positivist/naturalist philosophical divide -- they presuppose by testing a parameter of category membership, but postiive evidence is not evidence that parameter is actually constitutive of the category itself -- for example if you had two categories "games" and "cars," "weight" might be a reasonably good way to assign category membership, but it is not at all the only, or even the most salient difference between those categories. Like i feel like I'm crazy sometimes because shouldn't the fact that synthesized speech sounds \textit{sound bad} be a \textit{problem?} They might have all the theoretical justification in the world but the fact that they so badly imitate what even a plausible phoneme would sound like should be like a red flag for the generalizability of the conclusions that can be drawn from them.
+	\item theoretical problems with simplified stimuli - low-dimensional and linearly-separable stimulus spaces are fundamentally different than the high complexity of naturalistic stimuli... for all we know the computations are just straight up not comparable! \cite{schuesslerInterplayRandomnessStructure2020}
+
+\end{itemize}
+
+
+levels of analysis:
+
+phonetic perception has paradoxes at several levels of analysis that are not mutually discrete.
+
+\textbf{ontic/algorithmic}: what \textit{are} phonemes? are they positive descriptions of combinations of features, or negative descriptions of forbidden spectrotemporal state transitions?
+
+\textbf{implementation}: to some degree the methodological and theoretical disagreements between the feature-detection and population-computation models of phonetic perception mirror the single-cell/multicellular computation dichotomy described in the introduction of \cite{dubreuilComplementaryRolesDimensionality2020}. 
+
+\begin{itemize}
+	\item speed of processing vs. variability within category
+	\item neurons that process auditory information at phonetic timescales are relatively insensitive to spectral quality \cite{norman-haignereHierarchicalIntegrationMultiple2020}
+\end{itemize}
+
+
+actually `warping' perceptual space relative to acoustic space is already a really common idea in phonetics lit\cite{iversonInfluencesPhoneticIdentification1996,kuhlNewViewLanguage2000} and is a sorta trivial reformulation of the idea that the auditory system is learning to represent the maximally informative dimensions of the stimulus, so a perceptual warping is just a reflection of the condensation of representation of within-category variation (ie. not being represented/generalized over/compressed/whatever you want to call it) and a maximization of representation of the between-category variation. Accounts of exemplars and stimulus geometry are complementary here: saying that perceptual space is clustered near examplars and sparser away from them is the same thing as saying they are embedded in a space whose dimensions that maximize inter-category discriminability. Put another way, instances where there is not a clear examplar to `warp' perceptual space (as in the `low-r' group in \cite{iversonInfluencesPhoneticIdentification1996}) could also correspond to the absence of a clear perceptual dimension structure within the presented stimulus space: maybe those listeners discriminability feature dimensions don't feature F3 prominently, and in instances where clear exemplars warp the perceptual space, those dimensions are emphasized by increasing the weight of existing feature dimensions, or the perceptual space is `rotated' to emphasize them. 
+
+\end{multicols}
