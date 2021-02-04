@@ -1,0 +1,32 @@
+#+TITLE:     Prelims
+#+SUBTITLE:  Grant proposal to fulfill these dang degree requirements
+#+AUTHOR:    Jonny Saunders
+#+EMAIL:     (concat "j" at-sign "nny.fyi")
+#+LANGUAGE:  en
+#+OPTIONS:   H:4 num:nil toc:2 p:t
+
+* Status
+
+Work in progress! I will update you when it's time to talk!!!
+
+- [ ] Proposed
+- [ ] Written
+- [ ] Scheduled
+- [ ] Presented
+- [ ] Approved
+
+A work in progress! I'll update y'all when it's time to talk :)
+
+* Folder Structure
+
+- Proposal: documents for proposing prelim presentation
+- Resources: materials to draw from to write
+- TeX: the .tex for the prelims proposal itself
+  + see [[file:tex/prelims_main.pdf][tex/prelims_main.pdf]] for the compiled document
+  + the subsections are combined in [[file:tex/prelims_main.tex][tex/prelims_main.tex]]
+
+* Committee
+
+- Matt - ???
+- Mike - [[https://github.com/mikewehr][mikewehr]]
+- Santiago - [[https://github.com/sjara][sjara]]
