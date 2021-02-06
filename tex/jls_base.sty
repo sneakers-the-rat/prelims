@@ -21,6 +21,9 @@
 \usepackage{endnotes}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{tikz}
+\usepackage{zref-savepos}
+\usepackage[savepos]{zref}
 \usepackage[font=footnotesize, labelfont=bf]{caption}
 \usepackage[
 	backend=biber,
@@ -31,8 +34,8 @@
 ]{biblatex}
 \usepackage[colorlinks = true,
             hyperfootnotes=true,
-            urlcolor = Red,
-            citecolor = Red]{hyperref}
+            urlcolor = DarkOrchid,
+            citecolor = DarkOrchid]{hyperref}
 
 \usepackage{subfiles}
 
@@ -77,6 +80,27 @@
 \newenvironment{ideabox}
 {\def\FrameCommand{\hspace{0em}{\color{red}\vrule width 0.5pt} \hspace{1em}}\MakeFramed {\advance\hsize-\width \FrameRestore}}
 {\endMakeFramed}
+
+% margin notes for todo items
+% https://tex.stackexchange.com/questions/163567/margin-notes-multicols-tikz-overlay
+\def\MarginNote#1{%
+\zsavepos{#1}%
+%%%%%%--------
+\ifnum17000000<\number\zposx{#1}%
+    \begin{tikzpicture}[remember picture,overlay]
+    \coordinate (here) at (0,0);
+    \draw (current page.east |- here)
+            node[left]{\makebox[1.2cm][l]{#1}};
+    \end{tikzpicture}%to prevent adding extra space before text
+\else
+    \begin{tikzpicture}[remember picture,overlay]
+    \coordinate (here) at (0,0);
+    \draw (current page.west |- here)
+            node[right]{\makebox[1.2cm][r]{#1}};
+    \end{tikzpicture}%to prevent adding extra space before text
+\fi%
+\ignorespaces
+}
 
 
 % --------------------------------------------------------
@@ -133,15 +157,14 @@
 \newcommand{\draft}[1]{\textcolor{gray}{\textit{#1}}}
 
 % 'todo' command to mark notes to self
-
+\newcommand{\todo}[1]{%
+\addcontentsline{lot}{table}{#1}%
+\MarginNote{!!}%
+\textcolor{red}{#1}}
+% and modify toc header
 \addto\captionsenglish{%
     \renewcommand{\listtablename}{TODO:}
 }
-\newcounter{todocount}
-\newcommand{\todo}[1]{%
-\addcontentsline{lot}{table}{#1}%
-\stepcounter{todocount}%
-\textcolor{red}{#1}}
 
 % idea command to indicate a proposed idea
 \newcommand{\idea}[1]{\begin{ideabox}\faLightbulb[regular] - #1\end{ideabox}}
