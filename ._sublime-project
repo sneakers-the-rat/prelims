@@ -1,0 +1,13 @@
+{
+	"settings": {
+		"TEXroot": "tex/prelims_main.tex",
+		"builder_settings": {
+			"program": "xelatex",
+			"options": "--shell-escape",
+			"script_commands": [
+				"latexmk -cd -e -f -%E -interaction=nonstopmode -synctex=1",
+				"git add . && git commit -m \"automated commit on build\" && git push"
+			]
+		}
+	}
+}
