@@ -1,0 +1,2 @@
+- Start with demonstration from tensorflow.js playground that learns a simple 2-d nonlinearity by becoming sensitive to the product of the two `base' dimensions. it's a projection to a geometry that allows them to be discriminable. that's the basic idea.
+
