@@ -1,0 +1,23 @@
+\ProvidesPackage{tufte-jls-base}
+
+%%
+% Set up any book-specific stuff now
+
+%%
+% Load packages!
+\usepackage{framed}
+% \usepackage[
+%   backend=biber,
+%   style=numeric,
+%   citestyle=numeric,
+%     backref=true,
+%     sorting=none
+% ]{biblatex}
+\usepackage[colorlinks = true,
+            urlcolor = DarkOrchid,
+            citecolor = DarkOrchid]{hyperref}
+
+\renewenvironment{leftbar}
+{\def\FrameCommand{\hspace{0em}\vrule width 0.5pt \hspace{1em}}\MakeFramed {\advance\hsize-\width \FrameRestore}}
+{\endMakeFramed}
+
