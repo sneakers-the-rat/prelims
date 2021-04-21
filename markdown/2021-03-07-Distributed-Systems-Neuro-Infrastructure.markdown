@@ -63,6 +63,13 @@ Acknowledgements (make sure to double check spelling!!!):
 * metascience class for some of these ideas <3
 * mike for letting me always go rogue
 
+Add specific ethics section to introduction
+- we should not as scientists aspire to put all scientific knowledge in the hands of one of the largest, most abusive corporations on the planet.
+- we should not aspire to duplicate the platformization model where hundreds of startups compete to solve the same problem with little incentive for interoperability and every incentive for partial solutions that keep them in business. We whould not believe the best we can hope for is relying on subscriptions to 20 disjointed SaaS products as the fundament of human scientific knowledge.
+
+!! need 2 be clear that we're no longer talking about "datasets" anymore --- we're talking about referring to the data by what it is.
+
+!! when people have disabilities we make ramps, not bully them into climbing up the stairs. 
 
 # The State of Things
 
@@ -82,7 +89,7 @@ Rather than a screedy airing of unrelated dirty laundry, I argue that these prob
 
 [^inus]: In this paragraph I am of course only referring to many parts of the urbanized United States (with many exceptions) to illustrate the luxury of infrastructure. Water availability is a global humanitarian crisis increasingly exacerbated by climate change, confoundingly also caused by other forms of infrastructure, which is why it's essential to think about the unintended consequences and ethical implications of the kind of infrastructure we build.
 
-I am going to take the position that these problems can be *solved* and are not our inevitable and eternal fate. I will insist the system I describe is not *utopian* but is eminently practical --- with a bit of development to integrate them, **everything I propose here already exists and is widely used.** Viewing these problems as stemming from a shared infrastructural etiology allows us to problematize other symptoms that are widely normalized, and find new approaches for recognized problems that are thought to be intractable. 
+I am going to take the position that these problems can be *solved* and are not our inevitable and eternal fate. I will insist the system I describe is not *utopian* but is eminently practical --- with a bit of development to integrate them, **everything I propose here already exists and is widely used.** Viewing these problems as stemming from a shared infrastructural etiology allows us to problematize other symptoms that are widely normalized, and find new approaches for recognized problems that are thought to be intractable. (!! split these up, expand on problems of treating them separately, eg. treating peer review along you just keep the whole publication syustem instead of reimagining the whole of scientific communication mediums.)
 
 In no particular order, and with no pretense of completeness, the impacts of a lack of scientific infrastructure include:
 
@@ -107,6 +114,8 @@ Considered separately, these are problems, but together they are a damning indic
 !!! replace vvv with ^^^
 
 We arrive at this situation not because systems neuroscientists are lazy and stupid, but because the appropriate tools that fit the requirements of their discipline don’t exist, and traditional patterns of centralized organization can't scale to encompass their diverse needs. If the above description doesn't resonate with you and I have already made an enemy of you as a reader, maybe reading along thinking about all the exceptions to the above problems, the difficulty of solving them, or maybe my unfortunate tendency towards utopianism grates: *yes* there are many people and groups working on or who have solved some of these problems, *yes* these problems are all difficult, and *yes* I am *obnoxious* about *infrastructure* and it is a *personality flaw.* Bear with me at least a few more paragraphs.
+
+!! break this up into the different ways this has been addressed, like what 'open science' aims to a address & how that has devolved into bullying. the OSS community.
 
 ## A Brief, Beautiful Dream of Infrastructure 
 
@@ -517,6 +526,8 @@ At this point we have largely closed the loop of science: starting with standard
 
 
 ## Shared Knowledge
+
+!! why is public trust in scientists so low? could it be that there is an alternative to scientists seeing themselves as cloistered experts? re: cold war peer review paper
 
 Something that's so in the water of science that it's hard to imagine it being otherwise is the structure of scientific communication. Except for certain domain-specific exceptions, the only means of communicating scientific results is in a journal as a static document or at a conference as an ephemeral talk (though that is [changing](https://neuromatch.io/conference)). The remainder of the gigantic overflowing franzia bag of scientific discourse is funelled ingloriously onto Twitter[^twitterheg] --- and it *sucks*. There simply isn't a place to have longform, thoughtful, durable discussions about science. The direct connection between the lack of a communcaition venue to the lack of a way of storing technical, contextual knowledge is often overlooked. Because we don't have a place to talk about what we do, we don't have a place to write down how to do it. Science needs a communcation platform, but the needs and constraints of a scientific communication platform are different than those satisfied by the major paradigms of chatrooms, forums etc. By considering this platform as another infrastructure project alongside and integrated with those described in the previous sections, its form becomes much clearer, and it could serve as the centerpiece of scientific infrastructure.
 

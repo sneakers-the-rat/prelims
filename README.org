@@ -7,11 +7,9 @@
 
 * Status
 
-Work in progress! I will update you when it's time to talk!!!
-
 - [ ] Proposed
 - [ ] Written
-- [ ] Scheduled
+- [X] Scheduled
 - [ ] Presented
 - [ ] Approved
 
