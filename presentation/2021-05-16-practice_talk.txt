@@ -1,0 +1,18 @@
+- transition to talking about infrastu
+- s2 - spell out ECR on
+- s10 - a little popup saying basic limitations
+- s16 - give practical example -- we dont need to imagine how this works but
+- say in overview that we'll get to "how to implement" at the end.
+- move 'summary of community structure' s24 to end of community systems section.
+- governance -- pull quote about allen saying gocernance is the hardest thing to scale.
+- credit assignment part
+- why would i spend a lot of time on that  -- the current system of time use is catastrophically worse, and i'm not asking everyone to be a programmer.
+- close with example of 'how much harder would it be to get water the old way'
+- remember when talking about autopilot. 'this is just an example,' 
+	why are we talking about autopilot? this is a way with how we can capitalize on other people's development time.
+- opening is rough.
+	introduction give more relatable example of the way this would play out in an experiment.
+
+
+------
+- unit testing arguments, when you have a bug in code that isn't caught by your tests, you write a new test and never have that problem again. when someone raises a criticism, they can implement it as an analysis module, and then be alerted if these things happen again.

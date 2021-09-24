@@ -1,0 +1,95 @@
+-------------
+make slides
+-------------
+
+- S33: acknowledgements
+
+--------------
+must do & hard
+--------------
+
+--------------
+must do & easy
+--------------
+
+
+--------------
+nice to have but optional
+--------------
+
+
+- S4: hide circles, animate the filter props
+- **: make formatting for quote component match the first pretty one?
+- **: replace Appear with one that looks at step number not ID
+- S30: allcaps slide like "WITH A SYSTEM OF SEMANTIC WIKIS WE CAN UNIFY EVERYTHING" give a practical example of using all the parts of a system
+- S32: "it woudl be easy to make sweeping rec" quote, add link to hypothesis bookmarklet
+
+
+
+
+
+
+-----------------------
+
+-------------
+make slides
+-------------
+- S26: semantic web example. shoutout to librarians as the largest contributors here
+- S32: 'what now' by group: funding agencies/institutions, developers, scientists
+	- scientists start forming local clusters, mention ONICE
+	- developers start talking to STS people and librarian scientists
+- S20: make slide: combinatoric benefits of tools and data
+- S31: summary slide that lists all combinatoric elements of proposal
+- S21: make slide: what's missing? a communication platform and a way of sharing information. a way to share technical knowledge. a way to assign credit. a way to negotiate across the different decentralized components. "ping" in semantic wikis just as a tease
+	- pull quote from allen institute about organizing people at scale being the biggest prob
+- S25: summary of lessons learned from biggest decentralized systems
+
+
+--------------
+must do & hard
+--------------
+- **: make "implementation fairy" popup, "a message from implementation fairy" otherwise just use popup
+- S10: popup with good qualities vs bad qualities of p2p
+- S27: simplify NWB schema, add: 
+	- extension with overlapping terms
+	- experimental tool
+	- analytical tool
+	- 'nomological network' formalizing what analytical stages correspond to different parts of a theory
+- S12: make center part disappear
+	- add 'federation layer' label to center
+	- add 'answer' text on phone calls
+	- animate in link and label text in fed layer
+
+
+--------------
+must do & easy
+--------------
+- popup of ipfs
+- S27: add link description boxes on (all?) lines
+- S13: popup of "still no frontend, how to access the data?"
+- S15: redo 'modular' description to be about... modularity
+- S17: add in post-slide that shows IMU modularity, left is diagram of module and right is code example of using it outside autopilot?
+- S15: popup of datajoint elements and bids apps
+- S23: right side show panel of some sweet user technology
+- S24: right side text: systems for organizing labor, systems for formalizing consensus, systems for recognizing contribution
+- S5: add text - infrastructure without considering social structure of science is doomed to fail
+- S6: unify design principles with rest of presentation: interoperability, modularity
+- S11: sweeten text
+- S13: add minimal description: "choose who to federate with, describe some translation between you, unify all data"
+- S22: move formulation of general criteria to after examples. description of what.cd
+- S8: code example from onice conversion
+- S28: finish autopilot wiki example of nosepoke
+- S17: animate in boxes that check off different parts of the diagram
+- S3: sweeten text, spell out ECR
+
+
+
+
+--------------
+nice to have but optional
+--------------
+
+
+
+
+

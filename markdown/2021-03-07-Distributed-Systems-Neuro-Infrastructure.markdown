@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Distributed Infrastructure for Systems Neuroscience Would Revolutionize The Discipline"
+title: "Decentralized Infrastructure for (Neuro)Science"
 date: 2021-03-07
 description: By moving from establishing particular consortia building limited sets of experiments to building a generalized, distributed infrastructure for systems neuroscience, we can transform our discipline.
 image: /blog/assets/images/onice_logo.png
@@ -16,42 +16,27 @@ tags:
 noindex: true
 ---
 
-*This is a less-clickbaity, less listy expansion to a [previous post](/blog/2021-03-01-Systems-Neuro-Infrastructure) that is and should read as a manifesto rather than an empirical work. Some parts of the previous piece are repeated here. The audience for both is an emerging group of researchers at the University of Oregon formed to standardize efforts and tools across labs, so this document attempts to set our eyes a bit closer to the horizon, where "our" shifts somewhat interchangeably between referring to that group and systems neuroscience at large.*
+*This is a draft document, so if you do work that you think is relevant here but I am not citing it, it's 99% likely that's because I haven't read it , not that I'm deliberately ignoring you! Odds are I'd love to read & cite your work, and if you're working in the same space try and join efforts!*
 
-*This is a draft document, so if you do work that you think is relevant here but I am not citing it, it's 99% likely that's because I haven't read it, not that I'm deliberately ignoring you! Odds are I'd love to read & cite your work, and if you're working in the same space try and join efforts!*
 
-----
-
-**I want to be exceedingly clear that I am not shaming anyone for how they do science. I am trying to take effectively the opposite position of those people in the open science community that cast shame and suspicion on people for not passing some purity test. Doing open science is hard because we're lacking a lot of tools that would make it easy, and the social and community structures that make it rewarding --- and shaming people works in the opposite direction. Open science shouldn't be about passing some checklist of tests to become holier than thou. The fundamental motivations of open science should be caring about other people: caring about people being able to understand the world, caring about other people not wasting their time, cooperating with each other to do something massive and impossible. Relatedly i am not talking shit about anyone's work!!! Anytime I am describing some criticising some element of something it is because i have been inspired by and learned from it!!! This is about articulating a positive vision!!!**
-
-**start with discussion of what infrastructure is -- making things that seem impossible routine. We haven't addressed these problems after like a decade of writing becasue we haven't identified the real problems nor been bold enough to act. We can move in tiptoe steps but gradual change without a vision is pointless. We need to describe what holds us back and what needs to exist, and the act of converting that into gradual steps is all the work in between.**
-
-A lot of this is happening and being worked on!!! this document is an architecture for the whole system. providing a reason to develop one thing vs. another, trying to point devs in one direction but also make users & funders aware of what is possible & the conversations that happen in nerd circles
+> If we can make something decentralised, out of control, and of great simplicity, we must be prepared to be astonished at whatever might grow out of that new medium. 
+> 
+> [Tim Berners-Lee (1998): Realising the Full Potential of the Web](https://www.w3.org/1998/02/Potential.html)
 
 >  A good analogy for the development of the Internet is that of
-   constantly renewing the individual streets and buildings of a city,
-   rather than razing the city and rebuilding it. The architectural
-   principles therefore aim to provide a framework for creating
-   cooperation and standards, as a small "spanning set" of rules that
-   generates a large, varied and evolving space of technology.
-   - ftp://ftp.isi.edu/in-notes/rfc1958.txt
+> constantly renewing the individual streets and buildings of a city,
+> rather than razing the city and rebuilding it. The architectural
+> principles therefore aim to provide a framework for creating
+> cooperation and standards, as a small "spanning set" of rules that
+> generates a large, varied and evolving space of technology.
+>
+>   [RFC 1958: Architectural Principles of the Internet](https://datatracker.ietf.org/doc/html/rfc1958)
 
-> If we can make something decentralised, out of control, and of great simplicity, we must be prepared to be astonished at whatever might grow out of that new medium. https://www.w3.org/1998/02/Potential.html
+> In building cyberinfrastructure, the key question is not whether a problem is a “social” problem or a “technical” one. That is putting it the wrong way around. The question is whether we choose, for any given problem, a primarily social or a technical solution
+>
+> [Bowker, Baker, Millerand, and Ribes (2010): Toward Information Infrastructure Studies](https://doi.org/10.1007/978-1-4020-9789-8_5) {% cite bowkerInformationInfrastructureStudies2010 %}
 
-what's different about this? 
-
-- we're not describing a "new database system" but a way to make every "new database system" add functionality to the system rather than be independent of it.
-
-what are the goals of standardization?
-- external inspection
-- labor deduplication
-- increased access (and so it can't be complicated)
-- interoperability
-
-
-what are the traditional costs of standardization?
-- flexibility
-- learning curve
+> The critical issue is, how do actors establish generative platforms by instituting a set of control points acceptable to others in a nascent ecosystem? {% cite tilsonDigitalInfrastructuresMissing2010 %}
 
 Acknowledgements (make sure to double check spelling!!!):
 * Lauren E. Wool
@@ -62,92 +47,81 @@ Acknowledgements (make sure to double check spelling!!!):
 * open behavior team
 * metascience class for some of these ideas <3
 * mike for letting me always go rogue
+* os & avery for STS recs
+* add rest from presentation
 
-Add specific ethics section to introduction
-- we should not as scientists aspire to put all scientific knowledge in the hands of one of the largest, most abusive corporations on the planet.
-- we should not aspire to duplicate the platformization model where hundreds of startups compete to solve the same problem with little incentive for interoperability and every incentive for partial solutions that keep them in business. We whould not believe the best we can hope for is relying on subscriptions to 20 disjointed SaaS products as the fundament of human scientific knowledge.
 
-!! need 2 be clear that we're no longer talking about "datasets" anymore --- we're talking about referring to the data by what it is.
+# Introduction
 
-!! when people have disabilities we make ramps, not bully them into climbing up the stairs. 
+(initial sentence re: we use computers all day and it's really hard and takes up all of our time. make sure to specify for systems neuro.)
+
+We work in technical islands that range from individual researchers, to labs, consortia, and at their largest a few well-funded organizations. Our knowledge dissemination systems are as nimble as the static pdfs and ephemeral conference talks that they have been for decades (save for the godforsaken Science Twitter that we all correctly love to hate). Experimental instrumentation except for that at the polar extremes of technological complexity or simplicity is designed and built custom, locally, and on-demand. Software for performing experiments is a patchwork of libraries that satisfy some of the requirements of the experiment, sewn together by some uncommented script written years ago by a grad student who left the lab long-since. The technical knowledge to build both instrumentation and software is fragmented and unavailable as it sifts through the funnels of word-limited methods sections and never-finished documentation. And O Lord Let Us Pray For The Data, born into this world without coherent form to speak of, indexable only by passively-encrypted notes in a paper lab notebook, dressed up for the analytical ball once before being mothballed in ignominy on some unlabeled external drive. 
+
+In sum, all the ways our use and relations with computers are idiosyncratic and improvised are not isolated, but a symptom of a broader deficit in **digital infrastructure** for science. The yawning mismatch between our ambitions of what digital technology *should* allow us to do and the state of digital infrastructure hints at the magnitude of the problem: the degree to which the symptoms of digital deinfrastructuring define the daily reality of science is left as an exercise to the reader. 
+
+If the term infrastructure conjures images of highways and plumbing, then surely digital infrastructure would be flattered at the association. By analogy they illustrate many of its promises and challenges: when designed to, it can make practically impossible things trivial, allowing the development of cities by catching water where it lives and snaking it through tubes and tunnels sometimes directly into your kitchen. Its absence or failure is visible and impactful, as in the case of power outages. There is no guarantee that it "optimally" satisfies some set of needs for the benefit of the greatest number of people, as in the case of the commercial broadband duopolies. It exists not only as its technical reality, but also as an embodied and shared set of social practices, and so even when it does exist its form is not inevitable or final; as in the case of bottled water producers competing with municipal tap water on a behavioral basis despite being dramatically less efficient and more costly. Finally it is not socially or ethically neutral, and the impact of failure to build or maintain it is not equally shared, as in the expression of institutional racism that was the Flint, Michigan water crisis {% cite michicancivilrightscommissionFlintWaterCrisis2017 %}. 
+
+Being digitally deinfrastructured is not our inevitable and eternal fate, but the course of infrastructuring is far from certain. It is not the case that "scientific digital infrastructure" will rise from the sea monolithically as a natural result of more development time and funding, but instead has many possible futures{% cite mirowskiFutureOpenScience2018 %}, each with their own advocates and beneficiaries. Without concerted and strategic counterdevelopment based on a shared and liberatory ethical framework, science is poised to follow other domains of digital technology down the dark road of platform capitalism. The prize of owning the infrastructure that the practice of science is built on is too great, and it is not hard to imagine tech behemoths buying out the emerging landscape of small scientific-software-as-a-service startups and selling subscriptions to Science Prime.
+
+This paper is an argument that **decentralized** digital infrastructure is the best means of realizing the promise of digital technology for science. I will draw from several disciplines and knowledge communities like Science and Technology Studies (STS), Library and Information Science, open source software developers, and internet pirates, among others to articulate a vision of an infrastructure in three parts: **shared data, shared tools, and shared knowledge.** I will start with a brief description of what I understand to be the state of our digital infrastructure and the structural barriers and incentives that constrain its development. I will then propose a set of design principles for decentralized infrastructure and possible means of implementing it informed by prior successes and failures at building mass digital infrastructure. I will close with contrasting visions of what science could be like depending on the course of our infrastructuring, and my thoughts on how different actors in the scientific system can contribute to and benefit from decentralization.
+
+I insist that what I will describe is *not utopian* but is eminently practical --- the truly impractical choice is to do nothing and continue to rest the practice of science on a pyramid scheme {% cite ponziSciencePyramidScheme2020 %} of underpaid labor. With a bit of development to integrate and improve the tools, **everything I propose here already exists and is widely used.** A central principle of decentralized systems is embracing heterogeneity: harnessing the power of the diverse ways we do science instead of constraining them. Rather than a patronizing argument that everyone needs to fundamentally alter the way they do science, the systems that I describe are specifically designed to be easily incorporated into existing practices and adapted to variable needs. In this way I argue decentralized systems are *more practical* than the dream that one system will be capable of expanding to the scale of all science --- and as will hopefully become clear, inarguably *more powerful* than a disconnected sea of centralized platforms and services.
+
+An easy and common misstep is to categorize this as solely a *technical* challenge. Instead the challenge of infrastructure is also *social* and *cultural* --- it involves embedding any technology in a set of social practices, a shared belief that such technology should exist and that its form it not neutral, and a sense of communal valuation and purpose that sustains it {% cite bietzSustainingDevelopmentCyberinfrastructure2012 %}.
+
+The social and technical perspectives are both essential, but make some conflicting demands on the construction of the piece: Infrastructuring requires considering the interrelatedness and mutual reinforcement of the problems to be addressed, rather than treating them as isolated problems that can be addressed piecemeal with a new package. Such a broad scope trades off with a detailed description of the relevant technology and systems, but a myopic techno-zealotry that does not examine the social and ethical nature of scientific practice risks reproducing or creating new sources of harm. As a balance I will not be proposing a complete technical specification or protocol, but describing the general form of the tools and some existing examples that satisfy them; I will not attempt a full history or treatment of the problem of infrastructuring, but provide enough to motivate the form of the proposed implementations. 
+
+My understanding of this problem is, of course, uncorrectably structured by the horizon of disciplines around systems neuroscience that has preoccupied my training. While the core of my argument is intended to be a sketch compatible with sciences and knowledge systems generally, my examples will sample from, and my focus will skew to my experience. In many cases, my use of "science" or "scientist" could be "neuroscience" or "neuroscientist," but I will mostly use the former to avoid the constant context switches. I ask the reader for a measure of patience for the many ways this argument requires elaboration and modification for distant fields.
 
 # The State of Things
 
-## The Fragmentation of Systems Neuroscience
+## The Costs of being Deinfrastructured
 
-[comment]: # Suppose, for drama's sake, scientists, untethered by an ethics board and illuminated only by the lightning in their dark and stormy castle laboratory[^1], gave Idealized Science[^2] a body. Not quite the Fisher-Price-nice single body pushed by Big Mono-Corporealism, but a churning sentient gas erupting at all surfaces with pseudopod nebulae of empirical deviations, fissile and pendulous, abandoned like the legs of a retreating starfish in the face of overwhelming counterevidence. The scientists note it doesn't move forwards, or grow, per se, but nibbles at the radioactive holograms billowing from vents on the floor of reality to resolve the latent paradoxes of its body. Like a ballerina it arcs out of balance on one toe into impossible shapes so that in its momentum the bundle of its limbs can return to the placid rest of first position.
+Framing the many challenges of scientific digital technology development as reflective of a general digital infrastructure deficit gives a shared etiology to the technical and social harms that are typically treated separately. It also allows us to problematize other symptoms that are embedded in the normal practice of contemporary science.
 
-[^1]: Come on, say it out loud, give the syllables the sinister weight they deserve for castle labs, "lah-BORE-ah-tore-ee"
+To give a sense of the scale of need for digital scientific infrastructure, as well as a general scope for the problems the proposed system is intended to address, I will list some of the present costs. These lists are grouped into rough and overlapping categories, but make no pretense at completeness and have no particular order.
 
-[^2]: Given their experience as zookeepers of Idealized Science, experiments with Actual Science have been indefinitely postponed.
-
-At all scales, systems neuroscience is fragmented, and its movement as a unified body is mostly a trick of the light, where only the localized patches cohere. We work in technical islands that range from individual researchers, to labs, consortia, and at their largest a few well-funded organizations. Our knowledge dissemination systems are as nimble as the static pdfs and ephemeral conference talks that they have been for decades (save for the godforsaken Science Twitter that we all correctly love to hate). Experimental instrumentation except for that at the polar extremes of technological complexity or simplicity is designed and built custom, locally, and on-demand. Software for performing experiments is a patchwork of libraries that satisfy some of the requirements of the experiment, sewn together by some uncommented script written years ago by a grad student who left the lab long-since. The technical knowledge to build both instrumentation and software is fragmented and unavailable as it sifts through the funnels of word-limited methods sections and never-finished documentation. And O Lord Let Us Pray For The Data, born into this world without coherent form to speak of, indexable only by passively-encrypted notes in a paper lab notebook, dressed up for the analytical ball once before being mothballed in ignominy on some unlabeled external drive. 
-
-Rather than a screedy airing of unrelated dirty laundry, I argue that these problems have a shared cause: the state of our **infrastructure**. Far from the siren song it sounds in my ears, many probably hear infrastructure and think "oh like roads and water and stuff, \*yawn\* *boring!"* (and I ask the rest to permit me the rhetorical strawperson for a moment).
-
-**No! Not Boring! Magic!** We go and get water where it lives and bring it snaking through a magnificent labyrinth of pipes filters and pumps *directly into your house.* Sometimes multiple places in your house, wherever you want it! And it's practically *free*[^inus]. People pay $9 a month for Netflix, how much do you think you would pay a for-profit company for a *water subscription?* **Infrastructure makes formerly impossible things so trivial you forget about them.**
-
-[^inus]: In this paragraph I am of course only referring to many parts of the urbanized United States (with many exceptions) to illustrate the luxury of infrastructure. Water availability is a global humanitarian crisis increasingly exacerbated by climate change, confoundingly also caused by other forms of infrastructure, which is why it's essential to think about the unintended consequences and ethical implications of the kind of infrastructure we build.
-
-I am going to take the position that these problems can be *solved* and are not our inevitable and eternal fate. I will insist the system I describe is not *utopian* but is eminently practical --- with a bit of development to integrate them, **everything I propose here already exists and is widely used.** Viewing these problems as stemming from a shared infrastructural etiology allows us to problematize other symptoms that are widely normalized, and find new approaches for recognized problems that are thought to be intractable. (!! split these up, expand on problems of treating them separately, eg. treating peer review along you just keep the whole publication syustem instead of reimagining the whole of scientific communication mediums.)
-
-In no particular order, and with no pretense of completeness, the impacts of a lack of scientific infrastructure include:
+Impacts on the **daily experience** of researchers include:
 
 * A prodigious duplication and dead-weight loss of labor as each lab, and sometimes each person within each lab, will reinvent basic code, tools, and practices from scratch. Literally it is the inefficiency of the [Harberger's triangle](https://en.wikipedia.org/wiki/Deadweight_loss#Harberger's_triangle) in the supply and demand system for scientific infrastructure caused by inadequate supply. Labs with enough resources are forced to pay from other parts of their grants to hire professional programmers and engineers to build the infrastructure for their lab (and usually their lab or institute only), but most just operate on a purely amateur basis. Many PhD students will spend the first several years of their degree re-solving already-solved problems, chasing the tails of the wrong half-readable engineering whitepapers, in their 6th year finally discovering the technique that they actually needed all along. That's not an educational or training model, it's the effect of displacing the undone labor of unbuilt infrastructure on vulnerable graduate workers almost always paid poverty wages.
-* A profoundly leaky knowledge acquisition system where entire PhDs worth of data can be lost and rendered useless when a student leaves a lab and no one remembers how to access the data or how it's formatted. Indeed needing to learn data hygeine practices like backup, annotation, etc. "the hard way" through some catastrophic loss is accepted myth in much of science. At some scale all the very real and widespread pain, and guilt, and shame felt by people who had little choice but to reinvent their own data management system must be recognized as an infrastructural, rather than a personal problem.
 * At least the partial cause of the phenomenon where "every scientist needs to be a programmer now" as people who aren't particularly interested in being programmers --- which is *fine* and *normal* --- need to either suffer through code written by some other unlucky amateur or learn an entire additional discipline in order to do the work of the one they chose. Because there isn't more basic scientific programming infrastructure, everyone needs to be a programmer.
-* The dearth of data transparency where it is still in the year of our lord 2021 rare for systems neuro papers to publish the full, raw data along with all the analysis code, often because (in addition to the extraordinarily meagre incentives to do so) the data *and* analysis code are both completely homebrew and often omitted just due to the labor of cleaning it or the embarassment of sharing it[^4]. We can't expect data transparency from researchers while it is still so *hard.*
-* The inevitability of a replication crisis because it is often literally impossible to replicate an experiment that is done on a rig that was built one time, used entirely in-lab code, and was never documented
+* A great deal of pain and alienation for early- career researchers (ECRs) not previously trained in programming before being thrown in the deep end. Learning data hygeine practices like backup, annotation, etc. "the hard way" through some catastrophic loss is accepted myth in much of science. At some scale all the very real and widespread pain, and guilt, and shame felt by people who had little choice but to reinvent their own data management system must be recognized as an infrastructural, rather than a personal problem.
+* The high cost of "openness" and the dearth of data transparency. It is still rare for systems neuroscience papers to publish the full, raw data along with all the analysis code, often because (in addition to the extraordinarily meagre incentives to do so) the data *and* analysis code are both completely homebrew and often omitted just due to the labor of cleaning it or the embarassment of sharing it[^4]. The "Open science" movement, roughly construed, has made a holy mess of the social climate around openness, publicly shaming "closed scientists" on leaderboards and only occasionally recalling the relative luxury of labor or expertise to become "open." "Openness" is not a uniform or universal goal for all science, but for those for whom it makes sense, we need to provide the appropriate tooling before insisting on a change in scientific norms. We can't expect data transparency from researchers while it is still so *hard.*
+
+
+Impacts on the **system of scientific inquiry** include:
+
+* A profoundly leaky knowledge acquisition system where entire PhDs worth of data can be lost and rendered useless when a student leaves a lab and no one remembers how to access the data or how it's formatted. 
+* The inevitability of continual replication crises because it is often literally impossible to replicate an experiment that is done on a rig that was built one time, used entirely in-lab code, and was never documented
+* Outside of increasingly archaic PDFs distributed by already archaic journals, the need to rely on communication platforms and knowledge systems that weren't designed to, and don't come close to satisfying the needs of scientific communication. In the absence of some generalized means of knowledge organization, scientists ask the void (Twitter) for advice or guidance from anyone that algorithmically stumbles by. The highest we can aspire is to make a Slack about something, which even if it reaches the rare escape velocity of participation to make it useful, is incapable of producing a public, durable, and cumulative resource: and so the questions will be asked again... and again...
 * A perhaps doomed intellectual endeavor[^solaris] as we attempt to understand the staggering complexity of the brain by peering at the brain through the pinprickiest peephole of just the most recent data you or your lab have collected rather than being able to index across all relevant data from not only your lab, but all other labs that have measured the same phenomena. The unnecessary reduplication of experiments becomes not just a methodological limitation, but an ethical catastrophe as researchers have little choice but to abandon the elemental principle of sacrificing as few animals as possible to understand a phenomenon. 
 * A hierarchy of prestige that devalues the labor of multiple groups of technicians, animal care workers, and so on. Authorship is the coin of the realm, but many researchers that do work fundamental to the operation of science only receive the credit of an acknowledgement. We need a system to value and assign credit for the immense amount of technical and practical knowledge and labor they produce.
+
+Impacts on the relationship between **science and society**:
+
 * An insular system where the inaccessibility of all the "contextual" knowledge {% cite woolKnowledgeNetworksHow2020 barleyBackroomsScienceWork1994 %} that is beneath the level of publication but necessary to perform experiments, like "how to build this apparatus," "what kind of motor would work here," etc. is a force that favors established and well-funded labs who can rely on local knowledege and hiring engineers/etc. and excludes new, lesser-funded labs at non-ivy institutions. The concentration of technical knowledge magnifies the inequity of strongly skewed funding distributions such that the most well-funded labs can do a completely different kind of science than the rest of us, turning the positive-feedback loop of funding begetting funding ever faster.
 * An absconscion with the public resources we are privileged enough to receive, where rather than returning the fruits of the many technical challenges we are tasked with solving to the public in the form of data, tools, collected practical knowledge, etc. we largely return papers, multiplying the above impacts of labor duplication and knowledge inaccessibility by the scale of society. 
+* The complicity of scientists in rendering our collective intellectual heritage nothing more than another regiment in the ever-advancing armies of platform capitalism. If our highest aspirations are to shunt all our experiments, data, and analysis tools onto Amazon Web Services, our failure of imagination will be responsible for yet another obligate funnel of wealth into some of the most harmful corporations that have ever existed. For ourselves, we guarantee another triple-pay industry skimming public money: pay to store data, pay for access to the database, maybe with a premium subscription for the most in-demand datasets. For society, we squander the chance for one of the very few domains of non-economic labor to build systems to recollectivize the basic infrastrucutre of the internet: rather than providing an alternative to the information overlords and their digital enclosure movement, we will be run right into their arms.
 
 and so on.
 
 [^4]: which, to be clear, is a valid feeling and is reflective of a failure of infrastructure, not a personal failure.
 
-Considered separately, these are problems, but together they are a damning indictment of our role as stewards of our corner of the human knowledge project. 
+Considered separately, these are serious problems, but together they are a damning indictment of our role as stewards of our corner of the human knowledge project. 
 
-!! lots of work being done here on all this stuff, and it's heroic!!! But under the constraints of budget and time it's not really possible, and without a unified vision for how all our work might eventually cohere into something larger it's unlikely to do it by its own like water sucked into a droplet by its surface tension. a lot of these problems have been evaluated under the banner of open science, but we can't agree on what that term means let alone what we should do about it, which has caused bad shit to happen and for people to become disillusioned with the idea altogether. My goal not to not say that people should listen to me as some sort of prophet, it's the opposite: that we should listen to the many knowledge communities that have been working on related problems but so often escape our consideration. My goal is not to hype some product or company that i'm selling, it's the opposite: to create systems that make us free and powerful rather than reliant on a grab-bag of paid, proprietary platforms. My goal is not to shame people for the way they do science, it's the opposite: to articulate a series of systems that let us all benefit from the different ways we do science. My goal is to *give us a vision of how we can make things better for each other together.*
+We arrive at this situation not because scientists are lazy and incompetent, but because the appropriate tools that fit the requirements of their discipline don’t exist. The tools don't exist in part because we are embedded in a system of scientific labor that largely lack the reward mechanisms to build them, and in fact incentivize new, unintegrated, often quickly-abandoned tools rather than maintaining and expanding tools. After all, pull requests don't get get publications. We are unlikely to arrive at a set of tools that meet our needs because we are embedded in a model of scientific and digital technology production that depend on maintaining points of centralized control to guarantee continued profit extraction: put bluntly, "we are dealing with a massively entrenched set of institutions, built around the last information age and fighting for its life" {% cite bowkerInformationInfrastructureStudies2010 %}
 
-!!! replace vvv with ^^^
+There is, of course, an enormous amount of work being done by researchers and engineers on all of these problems, and a huge amount of progress has been made on them. My intention is not to shame or devalue anyone's work, but to try and describe a path towards integrating it and making it mutually reinforcing.
 
-We arrive at this situation not because systems neuroscientists are lazy and stupid, but because the appropriate tools that fit the requirements of their discipline don’t exist, and traditional patterns of centralized organization can't scale to encompass their diverse needs. If the above description doesn't resonate with you and I have already made an enemy of you as a reader, maybe reading along thinking about all the exceptions to the above problems, the difficulty of solving them, or maybe my unfortunate tendency towards utopianism grates: *yes* there are many people and groups working on or who have solved some of these problems, *yes* these problems are all difficult, and *yes* I am *obnoxious* about *infrastructure* and it is a *personality flaw.* Bear with me at least a few more paragraphs.
+Before proposing a potential solution to some of the above problems, it is important to motivate why they haven't already been solved, or why their solution is not necessarily imminent. To do that, we need a sense of the social and technical challenges that structure the development of our tools.
 
-!! break this up into the different ways this has been addressed, like what 'open science' aims to a address & how that has devolved into bullying. the OSS community.
-
-## A Brief, Beautiful Dream of Infrastructure 
-
-As a break from doomsaying, imagine the positive vision of doing neuroscience with all the power of basic infrastructure.
-
-You have some new research question, and so you turn to the standard Python (or whatever) library that allows you to query data from yours and all other labs who share their data with this system. You’re immediately able to filter through to find all the recordings from a particular subtype of cell in a particular region being exposed to some particular set of stimuli across some particular manipulation. Since you have access to decades of labor by thousands of scientists, even with that complex filter you still find, say for the sake of having a round cool-sounding number, a million recordings. Because they’re all in some standardized format, over the years a common analysis pipeline has been developed, so you’re also immediately able to perform the analyses to confirm the hunch for your new question --- and it’s time to implement it. 
-
-You don’t need to implement the whole thing from scratch because you can check out a similar experiment from the standardized experimental software framework, read the communally maintained documentation, make the minor tweaks you need for your experiment, and you’re off and running. You need to build some brand new component, but you also have a practical knowledge repository where other scientists working on similar problems have described the basic components, circuits, and have even uploaded some 3d-printable components for you to use. Because the repository was designed for ease of use and has a robust system of community incentives for contribution, as you build you document what you learn, and when you're finished upload the schematics and write instructions for your new component. The experimental software framework was designed to incorporate custom components, so you extend some similar hardware control code and integrate it with your experiment without needing to resort to some patchwork system of TTL synchronization pulses and serial port arcana.
-
-You did it! Experiment Over! The experimental framework produces data that is clean, annotated, and standardized at the time of acquisition, and automatically integrates it with the analysis pipeline you built when your experiment was just a budding baby hypothesis, so your analysis is finished shortly after the experiment is. You have the "auto-upload" setting on, so without any additional effort your work has been firehosing information back the global knowledge pool. You do a pull request for the improvements you’ve made to the experimental software, write the paper, and the loop is complete: a closed knowledge system where nothing is wasted and everyone is more capable and empowered by drawing from and contributing to it.
-
-Such a dream need not be only a dream, because each of these are tangibly realizable platforms and tools --- the question is less *whether it's possible* to build basic infrastructure, but more *how do we do it.* An easy misstep is to categorize this as solely a *technical* challenge, that these are just elaborations on our current tools and systems that will just come with time and continued development. Instead the challenge of infrastructure is also one of *design,* where the tools need to accomodate the needs of our discipline and ultimately make it *easier than not to do good science.* It also represents a *cultural* shift away from the individualistic heroism endemic in ours and many scientific discipline towards one where we view using and contributing to communal tools and knowledge repositories not as a nice extra thing some people do but incumbent upon us as scientists. 
-
-This document will attempt to be both a conceptual vision of the design of scientific infrastructure as well as a practical outline of the tools and path to realizing it. Both are essential, but make some conflicting demands on the construction of the piece: Making real progress in the constellation of problems above requires considering their interrelatedness and mutual reinforcement, rather than treating them as isolated problems that can be addressed piecemeal. Such a broad scope trades off with a detailed description of the relevant technology and systems, but a myopic techno-zealotry that does not examine the social and ethical nature of scientific practice risks reproducing or creating new sources of harm (see {mirowskiFutureOpenScience2018} for a particularly baroque expression of a related argument with respect to the open science movement).
-
-**Let's be super clear though, this is not some far-off fantastical vision, all of the technologies i describe are real and exist in some form. What I am describing here is the potential of combining them in a principled way.**
-
-Allow me to make explicit some of my beliefs and biases that motivate and structure the arguments in this paper. *(then actually do it lol)*
-
-I argue that infrastructure development also requires us to rethink the way we *organize* ourselves, where rather than turning to yet another *centralized* system, we learn from decades of experience from academic, activist, and digital communities that *decentralized* systems can deliver us the needed flexibility and resiliency. Neuroscience is not physics or astronomy, and its specific affordances and constraints need to be interrogated to imagine how a model of large-scale collaboration should overlap and diverge from that of national labs and observatories.
-
-I believe the problem of basic infrastructure in systems neuroscience is less insurmountable than it may appear, but before a roadmap of where to go from here it is valuable to dwell a bit longer on where we are now to concretize what should be done differently.
-
-
-
-## Why is it like this?
+## Systems Neuroscience Specifically...
 
 Every discipline has its own particular technical needs, and is subject to its own peculiar history and culture. Though the type of comprehensive distributed infrastructure I will describe later is a domain-general project, systems neuroscience specifically lacks some features of it that are present in immediately neighboring disciplines like genetics and cognitive psychology. I won't attempt a complete explanation, but instead will offer a few patterns I have noticed in my own limited exposure to the field that might serve as the beginnings of one. I want to be very clear throughout that I am never intending to cast shade on the work of anyone who has or does build and maintain the scientific infrastructure that exists --- in fact the opposite, that y'all deserve more resources.
 
 ### Diversity of Measurements
 
-Molecular biology and genetics are perhaps the neighboring disciplines with the best data sharing and analytical structure, spawning and occupying the near totality of a new subdiscipline of Bioinformatics (for an absolutely fascinating ethnography, see {% cite bietzCollaborationMetagenomicsSequence2009 %}). Though the experiments are of course just as complex as those in systems neuroscience, most rely on a small number of stereotyped sequencing (meta?)methods that result in the same one-dimensional, four character sequence data structure of base pairs. Systems neuroscience experiments increasingly incorporate dozens of measurements, electrophysiology, calcium imaging, multiple video streams, motion, infrared, and other sensors, and so on. This is increasingly true as neuroscientists are attempting ever more complex and naturalistic neuroethological experiments. Even the seemingly "common" electrophysiological or multiphoton imaging data can have multiple forms --- raw voltage traces? spike times? spike templates and times? single or multiunit? And these forms go through multiple intermediate stages of processing --- binning, filtering, aggregating, etc. --- each of which could be independently valuable and thus represented alongside their provenance in a theoretical data schema. Mainen and colleagues note this problem as well:
+Molecular biology and genetics are perhaps the neighboring disciplines with the best data sharing and analytical structure, spawning and occupying the near totality of a new subdiscipline of Bioinformatics (for an absolutely fascinating ethnography, see {% cite bietzCollaborationMetagenomicsSequence2009 %}). Though the experiments are of course just as complex as those in systems neuroscience, most rely on a small number of stereotyped sequencing (meta?)methods that result in the same one-dimensional, four character sequence data structure of base pairs. Systems neuroscience experiments increasingly incorporate dozens of measurements, electrophysiology, calcium imaging, multiple video streams, motion, infrared, and other sensors, and so on. This is increasingly true as neuroscientists are attempting ever more complex and naturalistic neuroethological experiments. Even the seemingly "common" electrophysiological or multiphoton imaging data can have multiple forms --- raw voltage traces? spike times? spike templates and times? single or multiunit? And these forms go through multiple intermediate stages of processing --- binning, filtering, aggregating, etc. --- each of which could be independently valuable and thus represented alongside their provenance in a theoretical data schema. Mainen and colleagues note this problem as well: 
 
 >  The data sets generated by a functional neuroscience experiment are large. They can also be complex and multimodal in ways that, say, genomic data might not be, embracing recordings of activity, behavioural patterns, responses to perturbations, and subsequent anatomical analysis. Researchers have no agreed formats for integrating different types of information. Nor are there standard systems for curating, uploading and hosting highly multimodal data. {% cite mainenBetterWayCrack2016 %}
 
@@ -157,7 +131,7 @@ We should not be so proud as to believe that our data is somehow uniquely comple
 
 ### Diversity of Preps
 
-Though there are certain well-limbered experimental backbones like the two-alternative forced choice task, even within them there seems to be a comparatively broad diversity of experimental preparations in systems neuro relative to adjacent fields. Even a visual two-alternative forced choice task is substantially different than an auditory one, but there is almost nothing shared between those and, for example, [measuring the representation of 3d space in a free-flying echolocating bat](https://doi.org/10.7554/eLife.29053). So unlike cognitive neuroscience and psychophysics that has tools like [pavlovia](https://pavlovia.org/) where the basic requirements and structure of experiments are more standardized, BioRXiv is replete with technical papers documenting "high throughput systems for this one very specific experiment" and there [isn't](https://docs.auto-pi-lot.com) a true experimental framework that satisfies the need for flexibility. 
+Though there are certain well-limbered experimental backbones like the two-alternative forced choice task, even within them there seems to be a comparatively broad diversity of experimental preparations in systems neuro relative to adjacent fields. Even a visual two-alternative forced choice task is substantially different than an auditory one, but there is almost nothing shared between those and, for example, [measuring the representation of 3d space in a free-flying echolocating bat](https://doi.org/10.7554/eLife.29053). So unlike cognitive neuroscience and psychophysics that has tools like [pavlovia](https://pavlovia.org/) where the basic requirements and structure of experiments are more standardized, BioRXiv is replete with technical papers documenting "high throughput systems for this one very specific experiment" and there [isn't](https://docs.auto-pi-lot.com) a true experimental framework that satisfies the need for flexibility.
 
 Mainen and colleagues note that this causes another problem distinct from variable outcome data, the even more variable and largely unreported metadata that parameterizes the minute details of experimental preps:
 
@@ -179,17 +153,114 @@ Yes again, Mainen and colleagues:
 
 >  Neuroscientists frequently live on the 'bleeding' edge technologically, building bespoke and customized tools. This do-it-yourself approach has allowed innovators to get ahead of the competition, but hampered the standardization of methods essential to making experiments efficient and replicable.
 >
->  Remarkably, it is standard practice for each lab to custom engineer all manner of apparatus, from microscopes and electrodes to the computer programmes for analysing data. Thousands of labs worldwide use the calcium sensor GCaMP, for example, for imaging neural activity in vivo. Yet neither the microscopes used for GCaMP imaging nor the algorithms used to analyse the resulting data sets have been standardized. Include {% cite mainenBetterWayCrack2016 %}:
+>  Remarkably, it is standard practice for each lab to custom engineer all manner of apparatus, from microscopes and electrodes to the computer programmes for analysing data. Thousands of labs worldwide use the calcium sensor GCaMP, for example, for imaging neural activity in vivo. Yet neither the microscopes used for GCaMP imaging nor the algorithms used to analyse the resulting data sets have been standardized. {% cite mainenBetterWayCrack2016 %}
 
-Each of these three disciplinary tendencies 
+!! make it clearer that the hacker spirit is not a *bad* thing but another *design constraint* and that we should actually avoid the paternalistic approach that says there's a "right way" to do science, and instead honor, learn from, and support the diversity of our approaches.
+
+### Focus on the Science
+
+Completely understandably... scientists want to focus on their discipline rather than spending time building infrastructure. But because infrastructure touches all of our work and very few people can only build it in their spare time (mostly for the love of the craft) we all have to build some of it. this is a classic collective action problem, and scientists are not evil or selfish for wanting to do their work.
+
+### Combinatorics of Recent Technology
+
+A lot of what I will describe here is relatively new! Some ideas are very old, like the semantic web and wikis, but others like federated communication and file transfer protocols are only reaching widespread use recently. The entire universe of open source scientific hardware and software has only sprung into its full and beautiful glory in the last decade or so, from pandas and and jupyter to open ephys and miniscopes and so on. Bittorrent is cool and good but IPFS allows us to think about qualitatively different things. It's ultimately the *combination* of these recently technologies that's important, rather than any single one of them. So in some sense it wasn't *possible* to think about the type of basic infrastructure outside the traditional lens of centralized databases and individual experimental software packages.
+
+## Scientific Software Generally...
+
+The constraints posed by the structure of systems neuroscience as a discipline are of course echos and elaborations of larger constraints in the system of scientific infrastructure production. 
+
+### Incentivized Fragmentation
+
+The incentive systems in science are complex, but tend to reward the production of many isolated, single-purpose software packages rather than cumulative work on shared infrastructure. The primary means of evaluation for a scientist is academic reputation, primarily operationalized by publications, but a software project will yield a single paper (if any at all). Traditional publications are static units of work that are "finished" and frozen in time, but software is never finished: the thousands of commits needed to maintain and extend the software are formally not a part of the system of academic reputation. 
+
+Shoehorning reputational rewards through traditional scientific publications has three immediate consequences: 1) Scientists are incentivized to make new, independent software that can be independently published, rather than integrating their work to extend the functionality of existing software. Howison & Herbsleb described this dynamic in the context of BLAST {% cite howisonIncentivesIntegrationScientific2013 %}, and one can browse the papers that cite the DeepLabCut {% cite mathisDeepLabCutMarkerlessPose2018a %} to find hundreds of downstream projects that make various extensions and improvements that are not integrated into the main library. 2) After publication, scientists have little incentive to maintain software outside of the domains in which the primary contributors use it (to satisfy reputational incentives by publishing in their own discipline), so outside of the most-used libraries most scientific software is brittle and difficult to use {% cite mangulImprovingUsabilityArchival2019 kumarBioinformaticsSoftwareBiologists2007 %}. 3) Since the reputational value of a publication depends on its placement within a journal and number of citations (among other metrics), and citation practices for scientific software are far from uniform and universal, the incentive to write scientific software at all is relatively low compared to its near-universal use {% cite howisonSoftwareScientificLiterature2016 %}.
+
+### Domain-Specific Silos
+
+When funding exists for scientific infrastructure development, it typically comes in the form of side effects from, or administrative supplements to research grants. The NIH describes as much in their Strategic Plan for Data Science {% cite NIH StrategicPlan2018 %}:
+
+> from 2007 to 2016, NIH ICs used dozens of different funding strategies to support data 
+resources, most of them linked to research-grant mechanisms that prioritized innovation and hypothesis testing over user service, utility, access, or efficiency. In addition, although the need for open and efficient data sharing is clear, where to store and access datasets generated by individual laboratories—and how to make them compliant with FAIR principles—is not yet straightforward. Overall, it is critical that the data-resource ecosystem become seamlessly integrated such that different data types and information about different organisms or diseases can be used easily together rather than existing in separate data “silos” with only local utility. 
+
+The National Library of Medicine within the NIH currently lists 122 separate databases in its [search tool](https://eresources.nlm.nih.gov/nlm_eresources/), each serving a specific type of data for a specific research community. Though their current funding priorities signal a shift away from domain-specific tools, the rest of the scientific software system consists primarily of tools and data formats purpose-built for a relatively circumscribed group of scientists without any framework for their integration. Every field has its own challenges and needs for software tools, but there is little incentive to build tools that serve as generalized frameworks to integrate them. 
 
 
-!! The problems are also structural, and vary depending on the size, resources, etc. of the institution as well... transition to next section
+### "The Long Now" of Immediacy vs. Idealism
+
+Digital infrastructure development takes place at multiple timescales simultaneously --- from the momentary work of implementing it, through longer timescales of planning, organization, and documenting to the imagined indefinite future of its use --- what Ribes and Finholt call "The Long Now. {% cite ribesLongNowTechnology2009 %}" Infrastructural projects constitutively need to contend with the need for immediately useful results vs. general and robust systems; the need to involve the effort of skilled workers vs. the uncertainty of future support; the  balance between stability with mutability; and so on. The tension between hacking something together vs. building something sustainable for future use is well-trod territory in the hot-glue and exposed wiring of systems neuroscience rigs.
+
+Deinfrastructuring divides the incentives and interests of senior and junior researchers. Established researchers face little pressure to improve the state of infrastructure, as (very crudely) their primary incentives are to push enough publications through the door to be able to secure the next round of funding to keep their lab afloat. Their time preference is very short: hack it together, get the paper out, we'll fix it later.
+
+ECRs are tasked with develping the tools, often interested in developing tools they'll be able to use throughout their careers, but between the pressure to establish their reputation with publications rarely have the time to develop something fully. As a consequence, a lot of software tools are developed by ECRs with no formal software training, contributing to the brittleness of scientific software and the low rates of adoption of best practices {% cite altschulAnatomySuccessfulComputational2013 %}. Anecdotally, the constant need to produce software that *does something* in the context of scientific programming which largely lacks the institutional systems and expert mentorship needed for well-architected software means that some programmers *never* have a chance to learn best practices commonly accepted in software engineering.
+
+The problem of time horizon in development is not purely a product of inexperience, and a longer time horizon is not uniformly better. For an example, look no further than the history and cultural dynamics of the semantic web and linked data communities, revisted more fully in a moment as Scruffiness vs. Neatness. In the semantic web era, thousands of some of the most gifted programmers worked with an eye to the indefinite future, but the raw idealism and neglect of the pragmatic reality of the need for software to *do something* drove many to abandon the effort:
+
+> But there was no *use* of it. I wasn't using any of the technologies for anything, except for things related to the technology itself. The Semantic Web is utterly inbred in that respect. The problem is in the model, that we create this metaformat, RDF, and *then* the use cases will come. But they haven't, and they won't. Even the genealogy use case turned out to be based on a fallacy. The very few use cases that there are, such as Dan Connolly's hAudio export process, don't justify hundreds of eminent computer scientists cranking out specification after specification and API after API.
+>
+> When we discussed this on the Semantic Web Interest Group, the conversation kept turning to how the formats could be fixed to make the use cases that I outlined happen. “Yeah, Sean's right, let's fix our languages!” But it's not the languages which are broken, except in as much as they are entirely broken: because it's the *mentality* of their design which is broken. You can't, it has turned out, make a metalanguage like RDF and then go looking for use cases. We thought you could, but you can't. It's taken eight years to realise.
+> {% cite palmerDitchingSemanticWeb2008 %}
+
+Developing digital infrastructure must be both bound to fulfilling immediate needs and a sense of incrementalism as well as guided by a long-range vision. The technical and social lessons run in parallel: We need software that solves problems people actually have right now, but can flexibly support is eventual form. We need a long-range vision to know what kind of tools we should build and which we shouldn't, and we need to keep it in a tight loop with the always-changing needs of the people it supports. In short, to develop digital infrastructure we need to be *strategic.* To be strategic we need a *plan.* To have a plan we need to value planning as *work.* On this, Ribes and Finholt are instructive:
+
+> "On the one hand, I know we have to keep it all running, but on the other, LTER is about long-term data archiving. If we want to do that, we have to have the time to test and enact new approaches. But if we’re working on the to-do lists, we aren’t working on the tomorrow-list" (LTER workgroup discussion 10/05).
+>
+> The tension described here involves not only time management, but also the differing valuations placed on these kinds of work. The implicit hierarchy places scientific research first, followed by deployment of new analytic tools and resources, and trailed by maintenance work. [...] While in an ideal situation development could be tied to everyday maintenance, in practice, maintenance work is often invisible and undervalued. As Star notes, infrastructure becomes visible upon breakdown, and only then is attention directed at its everyday workings (1999). Scientists are said to be rewarded for producing new knowledge, developers for successfully implementing a novel technology, but the work of maintenance (while crucial) is often thankless, of low status, and difficult to track. *How can projects support the distribution of work across research, development, and maintenance?* {% cite ribesLongNowTechnology2009 %}
 
 
-## The Ivies, Consortia, and "Most of Us"
+{% cite gawerBridgingDifferingPerspectives2014 %}
 
-The initial picture I painted of the state of Systems Neuroscience describes what I, in my limited exposure to the broader field, think might be typical for "most of us." There are admirable efforts to standardize on tools and realize "meso-scale collaboration" {% cite mainenBetterWayCrack2016 %}, and even for those that are not the experience of infrastructure can vary dramatically by institution. To draw contrast, I'll consider the case of core facilities at well-funded institutions and a few existing collaborations. My intention is not to denigrate anyone's hard work, but to learn from it.
+
+
+### "Neatness" vs "Scruffiness"
+
+Closely related to the tension between "Now" and "Later" is the tension between "Neatness" and "Scruffiness." Lindsay Poirier traces its reflection in the semantic web community as the way that differences in "thought styles" result in different "design logics"  {% cite poirierTurnScruffyEthnographic2017 %}. On the question of how to develop technology for representing the ontology of the web -- the system of terminology and structures with which everything should be named -- there were (very roughly) two camps. The "neats" prioritized consistency, predictability, uniformity, and coherence -- a logically complete and formally valid System of Everything. The "scruffies" prioritized local systems of knowledge, expressivity, "believing that ontologies will evolve organically as everyday webmasters figure out what schemas they need to describe and link their data. {% cite poirierTurnScruffyEthnographic2017 %}" 
+
+Aaron Swartz put it the way he did:
+
+> Instead of the “let’s just build something that works” attitude that made the Web (and the Internet) such a roaring success, they brought the formalizing mindset of mathematicians and the institutional structures of academics and defense contractors. They formed committees to form working groups to write drafts of ontologies that carefully listed (in 100-page Word documents) all possible things in the universe and the various properties they could have, and they spent hours in Talmudic debates over whether a washing machine was a kitchen appliance or a household cleaning device. 
+> 
+> With them has come academic research and government grants and corporate R&D and the whole apparatus of people and institutions that scream “pipedream.” And instead of spending time building things, they’ve convinced people interested in these ideas that the first thing we need to do is write standards. (To engineers, this is absurd from the start—standards are things you write after you’ve got something working, not before!) {% cite swartzAaronSwartzProgrammable2013 %}
+
+The outcomes of this cultural rift are subtle, but the broad strokes are clear: the "scruffies" diverged into what became called the "linked data" community whose technology has found broad use across information sciences, library sciences, and other applied domains, while the vision of a totalizing and logically consistent semantic web has largely faded into obscurity. One developer involved with semantic web technologies (who requested not be named), captured the present situation in their description of a still-active developer mailing list: 
+
+> I think that some people are completely detached from practical applications of what they propose. [...] I could not follow half of the messages. these guys seem completely removed from our plane of existence and I have no clue what they are trying to solve.
+
+This division in thought styles generalizes across domains of infrastructure, though outside of the linked data and similar worlds the dichotomy is more frequently between "neatness" and "people doing whatever" -- with integration and interoperability becoming nearly synonymous with standardization. 
+
+
+The problem with making generalized infrastructure around an exacting vision of reality is that people have to dramatically restructure their vision of reality...
+
+BEADL et al.
+
+Also differences between quantitative and qualitative research {% cite kornEInfrastructuresResearchCollaboration2017 %}
+
+### Taped-on Interfaces: Open-Loop User Testing
+
+The point of most active competition in many domains of commercial software is the user interface and experience (UI/UX), and to compete software companies will exhaustively user-test and refine them with pixel precision to avoid any potential customer feeling even a thimbleful of frustration. Scientific software development is largely disconnected from usability testing, as what little support exists is rarely tied to it. This, combined with the above incentives for developing new packages -- and thus reduplicating the work of interface development -- and the preponderance of semi-amateurs make it perhaps unsurprising that most scientific software is hard to use!
+
+!! expand the notion of interface to also include APIs, the ability to use as well as integrate software. principle of least power.
+
+
+### Sustainability and Neglect of Community Systems
+
+### Platforms, Industry Capture, and the Profit Motive
+
+Two related problems in platform thinking: thinking about a specific *one thing* that serves a particular community vs thinking about a federated type of thing that's capable of solving a lot of different things.
+
+When this is done in the private domain it can serve to slice off an individual thing and make it easy but don't solve it so people can continue to seek rent from it.
+
+
+
+### Protection of Institutional and Economic Power
+
+entrenched institutions like the journal system, but also PIs and etc. that were socialized in the current system and benefit from it -- dissolving the means of scientific communication and democratizing access to state of the art in scientific tooling is in some ways a direct attack on the class of researchers that can place a Nature paper and make their perspective the dominant one overnight because they're some of the very few people capable of performing the experiments. 
+
+
+## Whose Job is Infrastructure? - The Ivies, Institutes, Consortia, and "The Rest of Us"
+
+The initial picture I painted of the state of Systems Neuroscience describes what I, in my limited exposure to the broader field, think might be typical for "most of us." There are admirable efforts to standardize on tools and realize "meso-scale collaboration" {% cite mainenBetterWayCrack2016 %}, and even for those that are not the experience of infrastructure can vary dramatically by institution. To investigate the constraints and circumstances of infrastructure development, we can examine the different domains of contact researchers have with organized digital technology.
+
+### Institutional Core Facilities
 
 Centralized "core" facilities are maybe the most typical form of standardization and resource sharing at the level of departments and institutions. These facilities can range from minimal to baroque extravagance depending on institutional resources and whatever complex web of local history brought them about. 
 
@@ -205,6 +276,8 @@ While core facilities are an excellent way of expanding access, reducing redunda
 
 [^pnicaveat]: Though again, this project is examplary, built by friends, and would be an excellent place to start extending towards global infrastructure. 
 
+### Centralized Institutes
+
 Outside of universities, the Allen Brain Institute is perhaps the most impactful reflection of centralization in neuroscience. The Allen Institute has, in an impressively short period of time, created several transformative tools and datasets, including its well-known atlases {% cite leinGenomewideAtlasGene2007 %} and the first iteration of its [Observatory](http://observatory.brain-map.org/) project which makes a massive, high-quality calcium imaging dataset of visual cortical activity available for public use. They also develop and maintain software tools like their (SDK)[https://allensdk.readthedocs.io/en/latest/] and Brain Modeling Toolkit [(BMTK)](https://alleninstitute.github.io/bmtk/), as well as a collection of (hardware schematics)[https://portal.brain-map.org/explore/toolkit/hardware] used in their experiments. The contribution of the Allen Institute to basic neuroscientific infrastructure is so great that, anecdotally, and at least in my neck of the woods, when talking about infrastructure the default belief is "I thought the Allen was doing that."
 
 Though the Allen Institute is an excellent model for scale at the level of a single organization, its centralized, hierarchical structure cannot (and does not attempt to) serve as the backbone for all neuroscientific infrastructure. Performing single (or a small number of, as in its also-admirable [OpenScope Project](https://alleninstitute.org/what-we-do/brain-science/news-press/articles/three-collaborative-studies-launch-openscope-shared-observatory-neuroscience)) carefully controlled experiments a huge number of times is an important means of studying constrained problems, but is complementary with the diversity of research questions, model organisms, and methods present in the broader neuroscientific community. Christof Koch, its director, describes the challenge of centrally organizing a large number of researchers:
@@ -212,6 +285,8 @@ Though the Allen Institute is an excellent model for scale at the level of a sin
 > Our biggest institutional challenge is organizational: assembling, managing, enabling and motivating large teams of diverse scientists, engineers and technicians to operate in a highly synergistic manner in pursuit of a few basic science goals {% cite grillnerWorldwideInitiativesAdvance2016 %}
 
 > These challenges grow as the size of the team grows. Our anecdotal evidence suggests that above a hundred members, group cohesion appears to become weaker with the appearance of semi-autonomous cliques and sub-groups. This may relate to the postulated limit on the number of meaningful social interactions humans can sustain given the size of their brain {% cite kochBigScienceTeam2016 %}
+
+### Meso-scale collaborations
 
 Given the diminishing returns to scale for centralized organizations, many have called for smaller, "meso-scale" collaborations and consortia that combine the efforts of multiple labs {% cite mainenBetterWayCrack2016 %}. The most successful consortium of this kind has been the International Brain Laboratory {% cite abbottInternationalLaboratorySystems2017 woolKnowledgeNetworksHow2020 %}, a group of 22 labs spread across six countries. They have been able to realize the promise of big team neuroscience, setting a new standard for performing reproducible experiments performed by many labs {% cite laboratoryStandardizedReproducibleMeasurement2020 %} and developing data management infrastructure to match {% cite laboratoryDataArchitectureLargescale2020 %} (seriously, don't miss their extremely impressive [data portal](https://data.internationalbrainlab.org/)). Their project thus serves as the benchmark for large-scale collaboration and a model from which all similar efforts should learn from.
 
@@ -233,16 +308,35 @@ My intention is not to denigrate the excellent tools built by the IBL, nor their
 
 It is also unclear how replicable these consortia are, and whether they challenge, rather than reinforce technical inequity in science. Participating in consortia systems like the IBL requires that labs have additional funding for labor hours spent on work for the consortium, and in the case of graduate students and postdocs, that time can conflict with work on their degrees or personal research which are still far more potent instruments of "remaining employed in science" than collaboration. In the case that only the most well-funded labs and institutions realize the benefits of big team science without explicit consideration given to scientific equity, mesoscale collaborations could have the unintended consequence of magnifying the skewed distribution of access to technical expertise and instrumentation.
 
+### Platforms & Scientific SaaS
+
+!! (todo more explicit about the market dynamics right now driving people to make lots of small scientific startups and then eg get bought by sigma. then about the problem of the conflicting incentives towards interoperability -- the platforms, by design, must generate some inefficiency that makes them stay in business, eg. like pharma companies researching how to treat rather than cure diseases.)
+
+NIH Is doing it wrong!!!
+
+>>> Large-scale cloud-computing platforms are shared environments for data storage, access, and computing. They rely on using distributed data-storage resources for accessibility and economy of scale—similar conceptually to storage and distribution of utilities like electricity and water. Cloud environments thus have the potential to streamline NIH data use by allowing rapid and seamless access, as well as to improve efficiencies by minimizing infrastructure and maintenance costs. NIH will leverage  what is available in the private sector, either through strategic partnerships or procurement, to create a workable Platform as a Service (PaaS) environment - [NIH Strategic Plan for Data Science](https://datascience.nih.gov/strategicplan)
+
+!! This is also hugely dangerous and will be a massive moral failure.
+
+### Open-Source Scientific Software
+
+!! (section on funding mechanisms for open source, the drive to publish separable packages rather than PR existing tools becasue of publication incentives, the lack of formal organizing systemsfor multipackage development)
+
+!! Grants for software development focus mostly on "cloud-readiness" but don't really articulate a generalized infrastructure program. https://grants.nih.gov/grants/guide/notice-files/NOT-OD-20-073.html and https://datascience.nih.gov/strategicplan
+
+### The rest of us...
+
 Outside of ivies with rich core facilities, institutes like the Allen, or nascent multi-lab consortia, the situation errs closer to the dire picture of fragmentation I painted above. In addition to the homebrew stuff, there is an ocean of open-source software and hardware that keeps us afloat. There are far too many projects to name here[^ily], each covering some subset of experimenters needs, only rarely integrated with one another, and so to some degree the task of many scientific programmers is to search out the latest packages and quilt them into our patchwork local infrastructure. Anything else comes down to whatever we can afford with remaining grant money, scrape together from local knowledge, methods sections, begging, borrowing, and (hopefully not too much) stealing from neighboring labs.  
+
 
 A third option from the standardization offered by centralization and the blooming, buzzing, beautiful chaos of disconnected open-source development is that of decentralized systems. Rather than systems of geographically decentralized *people or lab-sites,* what must be decentralized is the *infrastucture itself:* we need to build the means by which the "rest of us" can mutually benefit by capturing and making use of each other's knowledge and labor.
 
 [^ily]: That we love!!!! Pay developers!!!!!
 
 
-# A Vision of Distributed Scientific Infrastructure
+# A Vision of Decentralized Scientific Infrastructure
 
-The distributed infrastructure I will describe here is related to previous notions of "grass-roots" science {% cite mainenBetterWayCrack2016 %}, and my intention is to provide a more prescriptive scaffolding for its design and potential implementation as a way of painting a picture of what science could be like.
+The decentralized infrastructure I will describe here is related to previous notions of "grass-roots" science {% cite mainenBetterWayCrack2016 %}, and my intention is to provide a more prescriptive scaffolding for its design and potential implementation as a way of painting a picture of what science could be like.
 
 Throughout this section, when I am referring to any particular piece of software I want to be clear that I don't intend to be dogmatically advocating that software *in particular*, but software *like it* that *shares its qualities* --- no snake oil is sold in this document. Since this is a design document, I will also be saying we *should* do a lot of things --- think of that as "to fulfill this system, we should do this," rather than "everyone should do this even if they disagree with the fundament of my argument." Similarly, when I describe limitations of existing tools, without exception I am describing a tool or platform I love, have learned from, and think is valuable --- learning from something can mean drawing respectful contrast!
 
@@ -252,7 +346,7 @@ I won't attempt a derivation of a definition of decentralized systems from base 
 
 * **Integrate with what exists** - At its advent, several different institutions and universities had already developed existing network infrastructures, and so the "top level goal" of the Internet Protocol was to "develop an effective technique for multiplex utilization of existing interconnected networks," and "come to grips with the problem of integrating a number of separately administered entities into a common utility" {% cite clarkDesignPhilosophyDARPA1988 %}. As a result, IP was developed as a 'common language' that could be implemented on any hardware, and upon which other, more complex tools could be built. This is also a cultural practice: when the system doesn't meet some need, one should try to extend it rather than building a new, separate system --- and if a new system is needed, it should be interoperable with those that exist.
 * **Empower the end-user** - Becauase IP was initially developed as a military technology by DARPA, a primary design constraint was survivability in the face of failure. The model adopted by internet architects was to move as much functionality from the network itself to the end-users of the network --- rather than the network itself guaranteeing a packet is transmitted, the sending computer will do so by requiring a response from the recipient.  For infrastructure, we should make tools that don't require a central team of developers to maintain, a central server-farm to host data, or a small group of people to govern. Whenever possible, data, software, and hardware should be self-describing, so one needs minimal additional tools or resources to understand and use it. 
-* **Modularity is Flexibility** - Building each component once, and once only requires that it "knows" about as few other parts of the system as possible. Once a component is built well, it can be reused and repurposed in contexts not imagined in its original design. Modularity is also critical for large-scale use: partial adoption partially captures development labor. Allowing users to gradually incorporate the pieces of a system into their existing infrastructure also lowers the barriers of high transitional costs to eventual complete adoption. A reciprocal principle to modularity is "the test of independent invention", or "If someone else had already invented your system, would theirs work with yours?" {% cite berners-leePrinciplesDesign1998 %}. In other words, in addition to the system itself being modular, it should also be designed so there is some sensible means for it to be integrated into some yet-unspecified larger project. The machine needs to have knobs.
+* **Modularity is Flexibility** - Building each component once, and once only requires that it "knows" about as few other parts of the system as possible. Once a component is built well, it can be reused and repurposed in contexts not imagined in its original design. Modularity is also critical for large-scale use: partial adoption partially captures development labor. Allowing users to gradually incorporate the pieces of a system into their existing infrastructure also lowers the barriers of high transitional costs to eventual complete adoption. Modularity applies at all scales -- the individual components of eg. an analytical framework should be independent from one another, but so too should the form of the analytical framework from the means of sharing the data it analyzes. A reciprocal principle to modularity is "the test of independent invention", or "If someone else had already invented your system, would theirs work with yours?" {% cite berners-leePrinciplesDesign1998 %}. In other words, in addition to the system itself being modular, it should also be designed so there is some sensible means for it to be integrated into some yet-unspecified larger project. The machine needs to have knobs.
 * **Embrace Heterogeneity** - Distributed systems need to anticipate unanticipated uses. Rather than a prescribed set of supported hardware, affordance needs to be made such that there is a clear way to extend the system to incorporate new function {% cite carpenterRFC1958Architectural1996 %}.
 * **Scalability is The Metric** - The system needs to have minimal barriers to use such that it can be deployed by as many users as possible --- scale is not just a design principle, but an independent objective and means of valuation for distributed systems. Logic or functionality that can only be used by a specific set of users breaks the system. Hand in hand with embracing heterogeneity, infrastructure needs to be able to be adopted by users with a minimal set of assumptions about their resources, organization, or expertise.
 
@@ -266,19 +360,15 @@ Neuroscientific data should be stored in a single, common format. Given the abse
 
 [^butalways]: but I am also almost always wrong when I think this.
 
-Standardization does *not* mean that it is the *only* format that is used --- there are legitimate applications for keeping data, even temporarily, in intermediate formats. Standardization, in this case, means that the data has some trivial conversion to and from NWB, so for example some experimental tool could implement its own data model as long as it could be exported to NWB. 
+!! change this section to something about the importance of relationships between data formats, simplify that way. introduce the concept for later where we talk about federation and later in rdf. another framing might be provenance https://www.w3.org/TR/prov-overview/
 
->>> change from here to the next marker to something about the importance of relationships between data formats, simplify that way. introduce the concept for later where we talk about federation and later in rdf
+Standardization does *not* mean that it is the *only* format that is used --- there are legitimate applications for keeping data, even temporarily, in intermediate formats. Standardization, in this case, means that the data has some trivial conversion to and from NWB, so for example some experimental tool could implement its own data model as long as it could be exported to NWB. 
 
 Relatedly, the NWB API should be extended to include conversions between prior and subsequent versions of the standard: when the standard is changed, there should also be a function that converts the previous to the new version and vice versa. Once data is in NWB, it would then be trivial to maintain compatibility while allowing the standard to evolve as needed. 
 
 If such a conversion function was implemented such that it was easy to extend, then it would also allow researchers to make local modifications to the standard to suit their needs, while retaining standardization with the root format. NWB files would then effectively be version controlled, and innovation on the standard could be integrated into the root standard and made available to all existing data. If compatibility-preserving extension of the protocol was possible, then the temptation to create accessory file and directory storage to contain "undefinable" data is minimized and it becomes possible to additional stipulate that doing so should be avoided.
 
->>>
-
-Wide adoption of NWB is not, in my opinion, the end goal in itself. Instead I see it as a point of standardization on the way to a more generalized, interlinked system of linked schema, articulated further in the following sections and in the discussion of [shared knowledge](#shared-knowledge).
-
->>> can write about ^^^ in terms of provenance https://www.w3.org/TR/prov-overview/
+Wide adoption of a standardized data format is not, in my opinion, the end goal in itself. Instead I see it as a point of standardization on the way to a more generalized, interlinked system of linked schema, articulated further in the following sections and in the discussion of [shared knowledge](#shared-knowledge).
 
 ### Peer-to-peer data sharing platform
 
@@ -295,33 +385,11 @@ Peer to peer systems have none of these problems, are inexpensive to maintain, a
 [^p2pdiscipline]: peer to peer systems are, maybe predictably, a whole academic subdiscipline. See {% cite shenHandbookPeertoPeerNetworking2010 %} for reference.
 
 #### Bittorrent Interlude
-
+<!-- 
 <details markdown="1"><summary>
   Click to expand/collapse the ~bittorrent interlude~
 </summary>
-
-In a traditional server/client model, uploading and downloading files is straightforward: one computer transfers the whole thing to another sequentially. Bittorrent, as a peer-to-peer network, is designed so that everyone that wants and has a file sends pieces of it to each other. 
-
-We can walk through an example. In each of the following images, each of the circles represents a computer. The clusters of circles on the left side are uploading and downloading from a traditional server, while those on the right are downloading as part of a bittorrent "swarm." Grids of colored squares represent a whole file, and each of the colored squares is just an arbitrary piece of that file.
-
-Say you're an enterprising circle and you just collected the Single Best Square Data file you've ever collected. You want to share that with your community! In a server/client world, you spend the afternoon uploading the entire thing to the server. Bittorrent instead works with .torrent files that are small \~KB summaries[^hash] of a file or files that are used to tell people you have it. .torrent files are uploaded to sites called [trackers](https://en.wikipedia.org/wiki/BitTorrent_tracker), along with some metadata and a description that lets other people find them.
-
-[^hash]: Hashes
-
-![Uploading A file](/blog/assets/images/torrent/0_upload-01.png)
-
-Now someone else wants to download the file. A typical server has a lot more bandwidth than a home internet connection, so let's say it's capable of sending two pieces (small colored boxes) per some arbitrary time between these images. To download via bittorrent, one first downloads the .torrent file, and then asks the tracker to connect them to anyone else who also has it. You (yes you!) can only send one piece at a time with your measly internet connection :(. The person receiving the file compares the piece you sent to the summary in the .torrent file, and if it matches, keeps it.
-
-![One person downloading a file](/blog/assets/images/torrent/1_download-01.png)
-
-Soon another person wants your sweet sweet Square Data. The server can only transmit two pieces at a time, and so it has to split them between the two downloaders. In the torrent swarm, you have the whole file, but now the first downloader has two pieces of the file, and so both of you are able to send data to the new downloader. The  Torrents don't have to be transferred in sequential order, and so you send a non-redundant pieces.....
-
-![Two people downloading a file](/blog/assets/images/torrent/2_download-01.png)
-![Six people downloading a file](/blog/assets/images/torrent/3_download-01.png)
-![Six people downloading a file](/blog/assets/images/torrent/4_download-01.png)
-
-finish this later...
-</details>
+Removed temporarily, do we need this? </details> -->
 
 The above illustration of an oversimplified peer-to-peer network by itself has the capability of providing a more robust, resilient infrastructure for the massive datasets in neuroscience. Entry costs are low, any existing server infrastructure present in labs, institutes, etc. can use a peer to peer system. Peer-to-peer networks also theoretically allow the maximum bandwidth of an entire networking system to be used, rather than the maximum bandwidth of a single connection. 
 
@@ -385,7 +453,7 @@ Rather than being prescriptive about one community structure, however, what allo
 
 #### Federated Systems
 
-!! compare to datalad
+!! compare to datalad - http://handbook.datalad.org/en/latest/usecases/datastorage_for_institutions.html
 
 There is no shortage of databases for scientific data, what limits their use is their fragmentation. Each subdiscipline having a separate database makes combining information from across even extremely similar subdisciplines combinatorically complex and laborious. It also makes finding the correct database for a given dataset often a matter of having prior knowledge or wild luck. 
 
@@ -433,7 +501,13 @@ The fundamental tradeoff between centralized and decentralized database systems 
 
 !! make sure to talk about datalad and DANDI!! https://www.datalad.org/
 
+!! federated systems let us bridge the gap between localized server technology like datajoint and mass server technology like databases. If you let people federate at a local scale to share data between an institute, a consortium, etc. and then let those things scale to federate together you have a plausible means by which slowly a generalized database system could be accumulated over time.
+
+!! lots of times this has been proposed before {% cite simaEnablingSemanticQueries2019 djokic-petrovicPIBASFedSPARQLWebbased2017 hasnainBioFedFederatedQuery2017 %}
+
 ## Shared Tools
+
+!! talk about Plugin Oriented Programming (pypi POP page) as a design philosophy
 
 If we're building infrastructure to allow us to build on each other's labor by sharing data, why not do the same for the tools that analyze and collect the data while we're at it? The benefits of distributed infrastructure that allow us to preserve our collected labor and knowledge compound when applied in multiple domains. The benefits of shared data, analytical, and experimental infrastructure are far more than the sum of their parts. Each is useful on its own, but as additional components of the system are developed they make the incentive to develop the rest even stronger <- this para is dogshit. rewrite with a clear head. 
 
@@ -450,7 +524,11 @@ A shared analytical framework should be
 * *pluggable* - The framework needs to provide a clear way of incorporating external analysis packages, handling their dependencies, and exposing their parameters to the user. 
 * *reproducible* - The framework should separate the *parameterization* of a pipeline, the specific options set by the user, and its *implementation*, the code that constitutes it. Implicit in a modularly constructed analysis framework is the notion of a "pipeline," or a specification of a tree (or, specifically, a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph)) of successive stages that process, merge, or split the data from the previous stage. The parameterization of a pipeline should be portable such that it, for example, can be published in the supplementary materials of a paper and reproduced exactly by anyone using the system. 
 
-Thankfully, [DataJoint](https://datajoint.io/) already does most of this, and is expanding its modularity with its recent [Elements](https://github.com/datajoint/datajoint-elements) project. Though it currently uses a [MySQL](https://docs.datajoint.io/python/admin/1-hosting.html), relational database as its backend, extending it to incorporate with the peer to peer database system described above would be an early, concrete development goal for this program. I have heard rumors they are considering adopting a decentralized traditional relational database like [CockroachDB](https://www.cockroachlabs.com/product/), which is not the same thing as a p2p federated semantic database system as I describe here, but is certainly a step in that direction. The rest is in the minutiae of normal software development, as well as building a user interface and collaboration platform for curation and management of shared pipelines. Thank you DataJoint team for making this section so simple.
+Thankfully, [DataJoint](https://datajoint.io/) already does most of this, and is expanding its modularity with its recent [Elements](https://github.com/datajoint/datajoint-elements) project. 
+
+!! need to revisit this in light of the paper: {% cite yatsenkoDataJointElementsData2021 %} 
+
+Though it currently uses a [MySQL](https://docs.datajoint.io/python/admin/1-hosting.html), relational database as its backend, extending it to incorporate with the peer to peer database system described above would be an early, concrete development goal for this program. I have heard rumors they are considering adopting a decentralized traditional relational database like [CockroachDB](https://www.cockroachlabs.com/product/), which is not the same thing as a p2p federated semantic database system as I describe here, but is certainly a step in that direction. The rest is in the minutiae of normal software development, as well as building a user interface and collaboration platform for curation and management of shared pipelines. Thank you DataJoint team for making this section so simple.
 
 The combined benefits of a unified data sharing and analytical system have a far greater reach than just saving redundant development time:
 
@@ -509,53 +587,75 @@ Replication is seriously hard. designing a software system that's smart enough a
 
 But for systems that do link code to a portable task description, where the documentation for each parameter is also good (like wat if that documentation was linked to the semantic wiki... return to in next section), then it is entirely possible to download a system that you point to whatever parts you have around and let er rip. (this doesn't address the technical complexity, but that's also a tease for the next section).
 
-It is already occasionally possible to follow the trail of provenance back to some experimental code, but when all code is developed independently, is any of it reliable {% cite wallReliabilityStartsExperimental2018 %}? 
+It is already occasionally possible to follow the trail of provenance back to some experimental code, but when all code is developed independently, is any of it reliable {% cite wallReliabilityStartsExperimental2018 %}? Like bugs in analytical software, bugs in experimental control software are likely rife, but unless they are present in the few pieces of commonly used open-source software they are almost entirely undiagnosable. Conversely, maybe more positively, a shared experimental framework gives a place to gather reference implementations of the many common algorithms, routines, and hardware controllers used in neuroscientific experiments. (!! the tiny details matter, but they almost never make it into methods sections. eg. we use bias correction methods, but the way we do it might be different than the way you do it. people do lots of great work optimizing over different training regimens, but that usually gets left as text. Algorithms for hardware control and sensor fusion are split across a zillion adafruit libraries, and they aren't modularized or split up or even documented that well)
+
+As an example, intertial motion sensors (IMUs) are an increasingly common tool for neuroscientists interested in studying unrestrained, freely moving behavior. In our case, we were working with [an IMU](https://web.archive.org/web/20210127212527/https://www.sparkfun.com/products/13944) with three, 3-dimensional sensors: an accelerometer, gyroscope and magnetometer. The raw signals from these IMUs (linear acceleration, angular velocity) are rarely useful on its own, and researchers are usually after some derived value like orientation, position, etc. Since the readings are also noisy, these transformed signals typically rely on some [sensor fusion](https://en.wikipedia.org/wiki/Sensor_fusion) algorithms to condition and combine them. We were interested in measuring "absolute" geocentric vertical velocity to control a motorized platform in a closed-loop experiment (as I described in my [NMC3](https://neuromatch.io/abstract/?submission_id=recI5D0QaJ857Y4JI) [talk](https://youtu.be/l2K0l4ec0Xw)). Adafruit provides a [basic Python](https://github.com/adafruit/Adafruit_CircuitPython_LSM9DS1/blob/master/adafruit_lsm9ds1.py) library to control the IMU, but it was relatively undocumented, slow, and didn't expose all the functionality of the chip, so we [adapted it to Autopilot](https://web.archive.org/web/20210421223148/https://docs.auto-pi-lot.com/en/parallax/autopilot.hardware.i2c.html#autopilot.hardware.i2c.I2C_9DOF). We were able to find a number of whitepapers that described a sensor fusion algorithms, but no implementations. The algorithm we eventually landed on uses a [Kalman filter](https://en.wikipedia.org/wiki/Kalman_filter) to combine accelerometer and gyroscope readings to estimate orientation {% cite abyarjooImplementingSensorFusion2015a %}. In this case were lucky to find Roger Labbe's excellent [filterpy](https://github.com/rlabbe/filterpy) library {% cite labbeKalmanBayesianFilters2020 labbeRlabbeFilterpy2021 %}, and with a few performance and syntax tweaks were also able to [adapt it to autopilot](https://web.archive.org/web/20210421223300/https://docs.auto-pi-lot.com/en/parallax/autopilot.transform.timeseries.html#autopilot.transform.timeseries.Kalman), extended it to implement the [orientation transformation](https://web.archive.org/web/20210421212747/https://docs.auto-pi-lot.com/en/parallax/autopilot.transform.geometry.html), and built it into the [IMU Object](https://github.com/wehr-lab/autopilot/blob/6843c0e7b6e2bfb4c35e2f7c41972336765feabd/autopilot/hardware/i2c.py#L469-L501). (!! - go back through and give names to each of the objects and methods for reference below)
+
+OK cool so you programmed an accelerometer, what's the big deal? First, from the developer's perspective: we needed to implement some ``hardware`` object and teach it about some geometric ``transform``ation. The autopilot ``hardware`` and ``transform`` modules give a clear place to implement both. The minimal expected structure of these modules make it straightforward to adapt existing code to the library, but we can also copy and modify (or, "inherit from") some existing hardware object to avoid having to write basic operations from scratch (eg. the I/O operations) and extend their functionality (eg. they are now networked, can take advantage of autopilot's unified logging system, etc.). To the degree that the framework is widely adopted, it gives credit to and provides a direct means of making the algorithms and tools they develop available to users. (!! they don't even need to integrate with the system wholesale, just expose some API and write a quick wrapper for this, we're wrking on it!!) This is, in some sense, the essence of what i mean by a behavior "framework" --- a minimal "spanning set" of rules for how the system works that gives clear points of extension.
+
+From the user's perspective: We could have implemented the sensor fusion algorithm and geometric transform directly "in" the ``IMU`` hardware object, but instead we separated them out as several independent ``transform`` objects. Rather than extending the functionality of a single hardware object, we instead gained several basic algorithms. Their generality is *noncoercive* --- The problem of getting absolute orientation from an IMU is solved for *everyone*, even those that don't want to adopt any other part of the system. The rotation algorithm is generic and modular: it can be used as just a trigonmetric transformation of accelerometer readings without a Kalman filter, incorporate gyroscopic readings, or use an entirely different timeseries filter altogether. By integrating them in an existing library of ``transform`` objects, they are made combinatorically more useful --- so far all I have discussed has been a means of estimating orientation, we still need to *use* that orientation estimate to extract "absolute" vertical acceleration. 
+
+In autopilot, we can express the rest of what we need as a series of ``transform`` objects that can be added together with ``+`` and ``+=``:
+
+So then when used with the IMU object...
 
 
-> A place to put reference implementations of processing algorithms, sensor fusion algorithms. and by splitting them up they become even more useful -- give example of autopilot IMU. Also makes them inspectable
+This transformation could itself be built into the sensor object as an additional ``IMU_9DOF.velocity`` property, as was done for ``.rotation``, reconfigured to add additional processing stages, and so on.
+
+(!! add example of adding DLC to position estimate? yes. to show how things don't need to be built into autopilot, just given some API, as was done with deeplabcut, at the end of the developer section)
+
+From the often-overlooked perspective of some downstream "reader": when everything is integrated into an extensible experimental framework, complete retrospective provenance becomes possible. Autopilot exhaustively logs all local parameters like hardware configuration, as well as references to all versions of all code used to generate a dataset *in the dataset itself* automatically. A reader can then trace all the data presented in a paper back through a standardized analysis pipeline to the raw data, and then continue to inspect every part of how it was generated. Since the code is all available by default, it becomes possible to audit experimental code on a broad scale: if a reader were to find a bug, they could raise an issue, patch it --- and flag all datasets that were effected.
 
 At this point we have largely closed the loop of science: starting with standardized data, shared in a scalable p2p system, with some federated interface structure, through modularized analysis parts, published alongside the means to directly reproduce the experiment and re-generate the data... and when we start considering these technologies as an ensemble some things that truly sound like science fiction compared to scientific reality start to become possible. In addition to allowing all of the above features of standardized output data being cross-indexable, what about making the literal fine-grained parameters a way of indexing The All Knowledge Base (go back to previous section and make clearer that only the output data is indexable)? Doing a simultaneous optimization over all of our parameters is basically impossible, and we have all these heuristics for hopping and skipping over it, but what if the behavioral system could query all other times the experiment has been performed, cross reference with published outcome data from the parameterization, and recommend the optimal parameterization for whatever you are studying? The compounding nature of making systems that preserve and respect the diversity of labor to make it coproductive is tectonic: at every stage, from implementation to tweaking, to understanding a science with appropriate infrastructure would move at light speed compared to the way we do it now.
 
-
-
-
-
-> allows us to 'close the loop' with shared data -- what if 
-
-> opens up the opportunity for an entirely new kind of shared data, one that's mroe about shared practical knowledge, by being able to automatically collect usage statistics, 
+... the major part that's missing is some means of negotiating our schemas and data ... transition to next section
 
 
 ## Shared Knowledge
 
+!! https://www.dbpedia.org/
+
 !! why is public trust in scientists so low? could it be that there is an alternative to scientists seeing themselves as cloistered experts? re: cold war peer review paper
 
-Something that's so in the water of science that it's hard to imagine it being otherwise is the structure of scientific communication. Except for certain domain-specific exceptions, the only means of communicating scientific results is in a journal as a static document or at a conference as an ephemeral talk (though that is [changing](https://neuromatch.io/conference)). The remainder of the gigantic overflowing franzia bag of scientific discourse is funelled ingloriously onto Twitter[^twitterheg] --- and it *sucks*. There simply isn't a place to have longform, thoughtful, durable discussions about science. The direct connection between the lack of a communcaition venue to the lack of a way of storing technical, contextual knowledge is often overlooked. Because we don't have a place to talk about what we do, we don't have a place to write down how to do it. Science needs a communcation platform, but the needs and constraints of a scientific communication platform are different than those satisfied by the major paradigms of chatrooms, forums etc. By considering this platform as another infrastructure project alongside and integrated with those described in the previous sections, its form becomes much clearer, and it could serve as the centerpiece of scientific infrastructure.
+The (part of the system that's most needed and potentially transformative) is a system of scientific communication. 
+
+Except for certain domain-specific exceptions, the scientific communication system consists of the two ancient monoliths groaning with the dust of their obsolescence: the dead and static papers of the traditional journal system, and the ephemeral halo of insider knowledge shared at conferences. The remainder of the gigantic overflowing franzia bag of scientific discourse is funelled ingloriously onto Twitter[^twitterheg] --- and it *sucks*.
+
+Since the advent of the contemporary journal system, communication technology has been stripped to its very atoms and rebuilt --- and it has managed to dig in and *persist* while all the letterman jackets and beatniks of its era have become vape teens on tiktok. A reconsideration of the entire scientific publishing system is strictly out of scope for this paper, but the communication system I will describe exists in the gaps of need it leaves unfilled. Criticisms of the scientific communication system typically start by imaginging much of the contemporary journal system as etched as fact on the face of reality, and tweaking at a few of its more ticklish knobs (eg. {% cite heesenPeerReviewGood2020 %}). Instead let's try it the other way: to trace the outlines of how a scientific communication system *should* work, given the basis of holistic infrastructure described so far. I will argue that a communication system, and more specifically the community it supports, is the blood that must pump through any of these digital systems that aspire to call themselves infrastructure. To arrive at a proposed form for a system, I'll start by laying the basic axes of communication technology, and then load the scales with the empirical girth of the largest knowledge systems that have ever existed: Wikipedia and internet piracy. 
+
+There simply isn't a place to have longform, thoughtful, durable discussions about science. The direct connection between the lack of a communcaition venue to the lack of a way of storing technical, contextual knowledge is often overlooked. Because we don't have a place to talk about what we do, we don't have a place to write down how to do it. Science needs a communcation platform, but the needs and constraints of a scientific communication platform are different than those satisfied by the major paradigms of chatrooms, forums etc. By considering this platform as another infrastructure project alongside and integrated with those described in the previous sections, its form becomes much clearer, and it could serve as the centerpiece of scientific infrastructure.
 
 I will argue that a semantic wiki should be the major piece of durable information storage, and that it should be supported by a forum system for discussion. 
 
-> description of its role as a schema resolution system -- currently we implement all these protocols and standards in these siloed, centralized groups that are inherently slow to respond to changes and needs in the field. instead we want to give people the tools so that their the knowledge can be directly preserved and acted on. 
-> descrption of its role as a tool of scientific discussion -- integrated with the data server and standardized analysis pipelines, it could be possible to have a discussion board where we were able to pose novel scientific questions, answerable with transparent, interrogatable analysis systems. Semantic linking makes the major questions in the field possible to answer, as discussions are linked to one another in a structured way and it is possible to literally trace the flow of thought. 
+!! description of its role as a schema resolution system -- currently we implement all these protocols and standards in these siloed, centralized groups that are inherently slow to respond to changes and needs in the field. instead we want to give people the tools so that their the knowledge can be directly preserved and acted on. 
 
-> let's tour through wikipedia for a second and see how it's organized. Look at these community incentive structures and the huge macro-to-micro level organization of the wiki projects. The infinitely mutable nature of a wiki is what makes it powerful, but the SaaS wikis we're familiar with don't capture the same kind of 'build the ground you walk on ' energy of the real wiki movement. 
+!! descrption of its role as a tool of scientific discussion -- integrated with the data server and standardized analysis pipelines, it could be possible to have a discussion board where we were able to pose novel scientific questions, answerable with transparent, interrogatable analysis systems. Semantic linking makes the major questions in the field possible to answer, as discussions are linked to one another in a structured way and it is possible to literally trace the flow of thought. 
+
+!! let's tour through wikipedia for a second and see how it's organized. Look at these community incentive structures and the huge macro-to-micro level organization of the wiki projects. The infinitely mutable nature of a wiki is what makes it powerful, but the SaaS wikis we're familiar with don't capture the same kind of 'build the ground you walk on ' energy of the real wiki movement. 
 
 [^twitterheg]: no citation needed, right? if there is some other bastion of scientific discourse i would love to know about it.
 
 !! what's critically different here between other projects is that we are explicitly considering the incentives to join each of these efforts, and by integrating them explicitly, each of them is more appealing. so while there are lots of databases, lots of analysis systems, lots of wikis, and so on, there aren't many that are linked with one another such that participating in one part of the system makes the rest of the system more powerful as well as makes it more useful to the user.
 
+### Axes of Communication Systems
+
+
 ### Semantic Wikis - Technical Knowledge Preservation
 
 {% cite kamelboulosSemanticWikisComprehensible2009 %}
 
-the word for communally curated schemas is https://en.wikipedia.org/wiki/Folksonomy
+!! Read and cite! {% cite classeDistributedInfrastructureSupport2017 %}
 
-{% cite goodSocialTaggingLife2009 %}
+!! the word for communally curated schemas is https://en.wikipedia.org/wiki/Folksonomy
 
-wikibase can do federated SPARQL queries https://wikiba.se/
+!! {% cite goodSocialTaggingLife2009 %}
+
+!! wikibase can do federated SPARQL queries https://wikiba.se/
 - and has been used to make folksonomies https://biss.pensoft.net/article/37212/
 
 > I can see my bank statements on the web, and my photographs, and I can see my appointments in a calendar. But can I see my photos in a calendar to see what I was doing when I took them? Can I see bank statement lines in a calendar? https://www.w3.org/2001/sw/
 
-lots of scientific wikis 
+!! lots of scientific wikis 
 - https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Molecular_Biology/Genetics/Gene_Wiki/Other_Wikis
 - https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Molecular_Biology/Genetics/Gene_Wiki
 
@@ -570,23 +670,17 @@ lots of scientific wikis
 
 > The Semantic Web is about two things. It is about common formats for integration and combination of data drawn from diverse sources, where on the original Web mainly concentrated on the interchange of documents. It is also about language for recording how the data relates to real world objects. That allows a person, or a machine, to start off in one database, and then move through an unending set of databases which are connected not by wires but by being about the same thing. https://www.w3.org/2001/sw/
 
-Semantic combination of databases in science are also not new {% cite cheungSemanticWebApproach2007 simaEnablingSemanticQueries2019 %}. We need both though! semantic federated databases!
-
+!! Semantic combination of databases in science are also not new {% cite cheungSemanticWebApproach2007 simaEnablingSemanticQueries2019 %}. We need both though! semantic federated databases!
 
 
 Part of what is missing and a place where we could learn from librarians is the notion of governance over a knowledge schema. People have a lot of trouble with NWB because they doubt if it could account for all the idiosyncracies in the types of data that we have to represent. But instead if we have a way of capturing all that thought and insight and practical experience in a governance and decisionmaking structure then we could flexibily work our way to a set of schemas that work for everyone. Part of what needs to be done is to move from SQL queries to a more expressive abstract system of schema creation that more people can participate in -- that's what infrastructure building is, making things that seem impossible or difficult routine. Practically, this can mean an explicit versioning system that not only specifies different versions of a data representation, but for every transition between state there is some notion of making that transition in the data structure. (give example of the subject upgrade system). If that was possible, then the notion of data structure would entirely evaporate, best of both worlds. we get everything and the game is over forever. This is also the distinction between centralized and decentralized systems. we can just make the changes and since they're done against a background of unified intent and expression they can exist simulataneously, commune with one another, while being forwardly productive as their contradictions are resolved.
 
 
-Consider the examples posed in {% cite shethFederatedDatabaseSystems1990 %}
-
-> Consider an attribute MEAL-COST of relation RESTAURANT in database DBl that describes the average cost of a meal per person in a restaurant without service charge and tax. Consider an attribute by the same name (MEAL-COST) of relation BOARDING in database DB2 that describes the average cost of a meal per person including service charge and tax. Let both attributes have the same syntactic properties. Attempting to compare attributes DBl.RESTAURANTS.MEALCOST and DBS.BOARDING.MEALCOST is misleading because they are semantically heterogeneous. Here the heterogeneity is due to differences in the definition (i.e., in the meaning) of related attributes [Litwin and Abdellatif 19861.
-> 
-> As a second example, consider an attribute GRADE of relation COURSE in database DBl. Let COURSE.GRADE describe the grade of a student from the set of values {A, B, C, D, FJ. Consider another attribute SCORE of relation CLASS in database DB2. Let SCORE denote a normalized score on the scale of 0 to 10 derived by first dividing the weighted score of all exams on the scale of 0 to 100 in the course and then rounding the result to the nearest half-point. DBl.COURSE.GRADE and DBB.CLASS.SCORE are semantically heterogeneous. Here the heterogeneity is due to different precision of the data values taken by the related attributes. For example, if grade C in DBl.COURSE.GRADE corresponds to a weighted score of all exFederated Database Systems l 187 ams between 61 and 75, it may not be possible to correlate it to a score in DB2.CLASS.SCORE because both 73 and 77 would have been represented by a score of 7.5.
-
-
 ### Linked communication platform 
 
 We all hate science twitter, why does it exist?
+
+> Though frequently viewed as a product to finish, it is dynamic ontologies with associated process-building activities designed, developed, and deployed locally that will allow ontologies to grow and to change. And finally, the technical activity of ontology building is always coupled with the background work of identifying and informing a broader community of future ontology users. {% cite bowkerInformationInfrastructureStudies2010 %}
 
 good science community infra
 - https://www.zooniverse.org
@@ -609,8 +703,6 @@ Compared to RDBMS https://www.w3.org/DesignIssues/RDB-RDF.html -- rather than in
 
 > For example, one person may define a vehicle as having a number of wheels and a weight and a length, but not foresee a color. This will not stop another person making the assertion that a given car is red, using the color vocabular from elsewhere. 
 
-Inheritance yall
-
 We're talking about a collaboration medium here... we need a way of organizing open questions in the field and discussing them in a straightfoward way. Why is it that every scientist needs to figure out their own completely gray-area way of discovering papers? 
 
 Bad APIs have killed projects with shitloads of funding like NWB and IPFS https://macwright.com/2019/06/08/ipfs-again.html - usability needs to be *the first priority* - you can develop all the fancy shit that you want, if no one can install and unse it in 10 minutes then it's totally useless. This is why the community also has to be collaborative, not just the technology, hends the shared governance idea... ppl note that IPFS has no economic model -- that's like true, because there has to be some other incentive system for using it -- it makes your work more powerful, it plugs you into a community, etc. https://blog.bluzelle.com/ipfs-is-not-what-you-think-it-is-e0aa8dc69b
@@ -619,6 +711,8 @@ Bad APIs have killed projects with shitloads of funding like NWB and IPFS https:
 
 
 depth of linking is combinatoric -- if you have a paper ecosystem where the numbers are linked to the data, and then the data is annotated, then it's possible to index information across papers not just by textual similarity metrics but on similarity of the structure of experiment and data. 
+
+the work of maintaining the system can't be invisible, read & cite {% cite classeDistributedInfrastructureSupport2017 bowkerInformationInfrastructureStudies2010 %}
 
 # Conclusion
 
@@ -635,7 +729,22 @@ Dont want to be prescriptive here, but that we can learn from previous efforts l
 - IBL, 
 - etc.
 
-## A second, more beautiful dream of what science could be
+## Contrasting visions for science
+
+### The worst platform capitalist world
+
+
+
+### What we could hope for
+
+As a break from doomsaying, imagine the positive vision of doing neuroscience with all the power of basic infrastructure.
+
+You have some new research question, and so you turn to the standard Python (or whatever) library that allows you to query data from yours and all other labs who share their data with this system. You’re immediately able to filter through to find all the recordings from a particular subtype of cell in a particular region being exposed to some particular set of stimuli across some particular manipulation. Since you have access to decades of labor by thousands of scientists, even with that complex filter you still find, say for the sake of having a round cool-sounding number, a million recordings. Because they’re all in some standardized format, over the years a common analysis pipeline has been developed, so you’re also immediately able to perform the analyses to confirm the hunch for your new question --- and it’s time to implement it. 
+
+You don’t need to implement the whole thing from scratch because you can check out a similar experiment from the standardized experimental software framework, read the communally maintained documentation, make the minor tweaks you need for your experiment, and you’re off and running. You need to build some brand new component, but you also have a practical knowledge repository where other scientists working on similar problems have described the basic components, circuits, and have even uploaded some 3d-printable components for you to use. Because the repository was designed for ease of use and has a robust system of community incentives for contribution, as you build you document what you learn, and when you're finished upload the schematics and write instructions for your new component. The experimental software framework was designed to incorporate custom components, so you extend some similar hardware control code and integrate it with your experiment without needing to resort to some patchwork system of TTL synchronization pulses and serial port arcana.
+
+You did it! Experiment Over! The experimental framework produces data that is clean, annotated, and standardized at the time of acquisition, and automatically integrates it with the analysis pipeline you built when your experiment was just a budding baby hypothesis, so your analysis is finished shortly after the experiment is. You have the "auto-upload" setting on, so without any additional effort your work has been firehosing information back the global knowledge pool. You do a pull request for the improvements you’ve made to the experimental software, write the paper, and the loop is complete: a closed knowledge system where nothing is wasted and everyone is more capable and empowered by drawing from and contributing to it.
+
 
 OK Here's the moment at the end of 2001.
 

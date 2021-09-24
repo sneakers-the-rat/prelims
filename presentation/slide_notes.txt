@@ -1,0 +1,50 @@
+------------------------
+S0
+
+------------------------
+S1
+
+!- discuss practical example of doing each of the 3 things
+
+
+------------------------
+S2
+
+- This is an infrastructure problem
+
+
+------------------------
+S3
+
+------------------------
+S4 - decentralized infrastructure
+
+- To see this as an infrastructure problem, we need to see what infrastructure would look like
+
+------------------------
+S5
+
+------------------------
+S6
+
+!- to start, we can look to some of the basic design principles of the internet
+
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+------------------------
+S31 - system summary
+
+after describing system, give example of water. think about how much harder it would be 
+

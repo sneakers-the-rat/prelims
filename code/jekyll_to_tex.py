@@ -131,7 +131,7 @@ if __name__ == "__main__":
             in_fn,
             document_class= document_class,
             document_class_options=['nohyper'],
-            title = "Distributed Infrastructure For Systems Neuroscience Would Revolutionize The Discipline",
+            title = "Decentralized Infrastructure for Neuro(science)",
             author = "Jonny L. Saunders",
             date = "\\today",
             load_packages = [],
@@ -146,7 +146,7 @@ if __name__ == "__main__":
         text = jekyll_to_tex(
             in_fn,
             document_class= document_class,
-            title = "Distributed Infrastructure For Systems Neuroscience Would Revolutionize The Discipline",
+            title = "Decentralized Infrastructure for Neuro(science)",
             author = "Jonny L. Saunders",
             date = "\\today",
             load_packages = ['jls_base'],
